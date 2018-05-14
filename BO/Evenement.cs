@@ -9,6 +9,7 @@ namespace BO
     public class Evenement : IIdentifiable
     {
         public int Id { get; set; }
+        public int NbParticipants { get; set; }
         public string Nom { get; set; }
         public string Description { get; set; }
         public DateTime DebutEvenement { get; set; }
