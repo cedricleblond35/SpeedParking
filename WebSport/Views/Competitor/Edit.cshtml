@@ -1,0 +1,36 @@
+﻿@using WebSport.Extension
+@model WebSport.Models.CreateEditCompetitorVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Competitor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Competitor.Id)
+
+        @Html.CustomEditorFor(model => model.Competitor.Nom)
+        @Html.CustomEditorFor(model => model.Competitor.Prenom)
+        @Html.CustomEditorFor(model => model.Competitor.Email)
+        @Html.CustomEditorFor(model => model.Competitor.DateNaissance)
+        @Html.CustomDropdownListFor(m => m.Races, model => model.IdSelectedRace, Model.Races.Select(r => new SelectListItem { Text = r.Title, Value = r.Id.ToString() }))
+        @Html.CustomButtonSubmit("Save")
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

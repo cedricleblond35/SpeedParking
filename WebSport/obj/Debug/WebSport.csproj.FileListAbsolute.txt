@@ -1,0 +1,253 @@
+D:\TP Websport\WebSport\bin\ApplicationInsights.config
+D:\TP Websport\WebSport\bin\roslyn\csc.exe
+D:\TP Websport\WebSport\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\TP Websport\WebSport\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\TP Websport\WebSport\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\TP Websport\WebSport\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\TP Websport\WebSport\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\TP Websport\WebSport\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\TP Websport\WebSport\bin\roslyn\System.Collections.Immutable.dll
+D:\TP Websport\WebSport\bin\roslyn\System.Reflection.Metadata.dll
+D:\TP Websport\WebSport\bin\roslyn\vbc.exe
+D:\TP Websport\WebSport\bin\roslyn\VBCSCompiler.exe
+D:\TP Websport\WebSport\bin\roslyn\VBCSCompiler.exe.config
+D:\TP Websport\WebSport\bin\WebSport.dll.config
+D:\TP Websport\WebSport\bin\WebSport.dll
+D:\TP Websport\WebSport\bin\WebSport.pdb
+D:\TP Websport\WebSport\bin\Antlr3.Runtime.dll
+D:\TP Websport\WebSport\bin\BO.dll
+D:\TP Websport\WebSport\bin\Microsoft.AI.Agent.Intercept.dll
+D:\TP Websport\WebSport\bin\Microsoft.AI.DependencyCollector.dll
+D:\TP Websport\WebSport\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\TP Websport\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\TP Websport\WebSport\bin\Microsoft.AI.Web.dll
+D:\TP Websport\WebSport\bin\Microsoft.AI.WindowsServer.dll
+D:\TP Websport\WebSport\bin\Microsoft.ApplicationInsights.dll
+D:\TP Websport\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\TP Websport\WebSport\bin\Microsoft.Web.Infrastructure.dll
+D:\TP Websport\WebSport\bin\Newtonsoft.Json.dll
+D:\TP Websport\WebSport\bin\System.Web.Helpers.dll
+D:\TP Websport\WebSport\bin\System.Web.Mvc.dll
+D:\TP Websport\WebSport\bin\System.Web.Optimization.dll
+D:\TP Websport\WebSport\bin\System.Web.Razor.dll
+D:\TP Websport\WebSport\bin\System.Web.WebPages.Deployment.dll
+D:\TP Websport\WebSport\bin\System.Web.WebPages.dll
+D:\TP Websport\WebSport\bin\System.Web.WebPages.Razor.dll
+D:\TP Websport\WebSport\bin\WebGrease.dll
+D:\TP Websport\WebSport\bin\BO.pdb
+D:\TP Websport\WebSport\bin\Microsoft.AI.DependencyCollector.xml
+D:\TP Websport\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\TP Websport\WebSport\bin\Microsoft.AI.Web.xml
+D:\TP Websport\WebSport\bin\Microsoft.AI.WindowsServer.xml
+D:\TP Websport\WebSport\bin\Microsoft.ApplicationInsights.xml
+D:\TP Websport\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\TP Websport\WebSport\bin\System.Web.Helpers.xml
+D:\TP Websport\WebSport\bin\System.Web.Mvc.xml
+D:\TP Websport\WebSport\bin\System.Web.Optimization.xml
+D:\TP Websport\WebSport\bin\System.Web.Razor.xml
+D:\TP Websport\WebSport\bin\System.Web.WebPages.xml
+D:\TP Websport\WebSport\bin\System.Web.WebPages.Deployment.xml
+D:\TP Websport\WebSport\bin\System.Web.WebPages.Razor.xml
+D:\TP Websport\WebSport\bin\Antlr3.Runtime.pdb
+D:\TP Websport\WebSport\bin\Newtonsoft.Json.xml
+D:\TP Websport\WebSport\obj\Debug\WebSport.csprojResolveAssemblyReference.cache
+D:\TP Websport\WebSport\obj\Debug\WebSport.dll
+D:\TP Websport\WebSport\obj\Debug\WebSport.pdb
+D:\TP Websport\WebSport\bin\DAL.dll
+D:\TP Websport\WebSport\bin\DAL.pdb
+D:\TP WebsportV2\WebSport\bin\ApplicationInsights.config
+D:\TP WebsportV2\WebSport\bin\roslyn\csc.exe
+D:\TP WebsportV2\WebSport\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\TP WebsportV2\WebSport\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\TP WebsportV2\WebSport\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\TP WebsportV2\WebSport\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\TP WebsportV2\WebSport\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\TP WebsportV2\WebSport\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\TP WebsportV2\WebSport\bin\roslyn\System.Collections.Immutable.dll
+D:\TP WebsportV2\WebSport\bin\roslyn\System.Reflection.Metadata.dll
+D:\TP WebsportV2\WebSport\bin\roslyn\vbc.exe
+D:\TP WebsportV2\WebSport\bin\roslyn\VBCSCompiler.exe
+D:\TP WebsportV2\WebSport\bin\roslyn\VBCSCompiler.exe.config
+D:\TP WebsportV2\WebSport\bin\WebSport.dll.config
+D:\TP WebsportV2\WebSport\bin\WebSport.dll
+D:\TP WebsportV2\WebSport\bin\WebSport.pdb
+D:\TP WebsportV2\WebSport\bin\Antlr3.Runtime.dll
+D:\TP WebsportV2\WebSport\bin\BO.dll
+D:\TP WebsportV2\WebSport\bin\DAL.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.Agent.Intercept.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.DependencyCollector.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.Web.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.WindowsServer.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.ApplicationInsights.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\TP WebsportV2\WebSport\bin\Microsoft.Web.Infrastructure.dll
+D:\TP WebsportV2\WebSport\bin\Newtonsoft.Json.dll
+D:\TP WebsportV2\WebSport\bin\System.Web.Helpers.dll
+D:\TP WebsportV2\WebSport\bin\System.Web.Mvc.dll
+D:\TP WebsportV2\WebSport\bin\System.Web.Optimization.dll
+D:\TP WebsportV2\WebSport\bin\System.Web.Razor.dll
+D:\TP WebsportV2\WebSport\bin\System.Web.WebPages.Deployment.dll
+D:\TP WebsportV2\WebSport\bin\System.Web.WebPages.dll
+D:\TP WebsportV2\WebSport\bin\System.Web.WebPages.Razor.dll
+D:\TP WebsportV2\WebSport\bin\WebGrease.dll
+D:\TP WebsportV2\WebSport\bin\BO.pdb
+D:\TP WebsportV2\WebSport\bin\DAL.pdb
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.DependencyCollector.xml
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.Web.xml
+D:\TP WebsportV2\WebSport\bin\Microsoft.AI.WindowsServer.xml
+D:\TP WebsportV2\WebSport\bin\Microsoft.ApplicationInsights.xml
+D:\TP WebsportV2\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\TP WebsportV2\WebSport\bin\System.Web.Helpers.xml
+D:\TP WebsportV2\WebSport\bin\System.Web.Mvc.xml
+D:\TP WebsportV2\WebSport\bin\System.Web.Optimization.xml
+D:\TP WebsportV2\WebSport\bin\System.Web.Razor.xml
+D:\TP WebsportV2\WebSport\bin\System.Web.WebPages.xml
+D:\TP WebsportV2\WebSport\bin\System.Web.WebPages.Deployment.xml
+D:\TP WebsportV2\WebSport\bin\System.Web.WebPages.Razor.xml
+D:\TP WebsportV2\WebSport\bin\Antlr3.Runtime.pdb
+D:\TP WebsportV2\WebSport\bin\Newtonsoft.Json.xml
+D:\TP WebsportV2\WebSport\obj\Debug\WebSport.csprojResolveAssemblyReference.cache
+D:\TP WebsportV2\WebSport\obj\Debug\WebSport.dll
+D:\TP WebsportV2\WebSport\obj\Debug\WebSport.pdb
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\ApplicationInsights.config
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\csc.exe
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\vbc.exe
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\WebSport.dll.config
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\WebSport.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\WebSport.pdb
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Antlr3.Runtime.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\BO.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\DAL.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.Web.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Newtonsoft.Json.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Helpers.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Mvc.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Optimization.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Razor.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.WebPages.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.WebPages.Razor.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\WebGrease.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\BO.pdb
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\DAL.pdb
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.Web.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Helpers.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Mvc.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Optimization.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.Razor.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.WebPages.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\System.Web.WebPages.Razor.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Antlr3.Runtime.pdb
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\Newtonsoft.Json.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\obj\Debug\WebSport.csprojResolveAssemblyReference.cache
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\obj\Debug\WebSport.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\obj\Debug\WebSport.pdb
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\EntityFramework.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\EntityFramework.xml
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\fr\System.Web.Helpers.resources.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\fr\System.Web.Mvc.resources.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\fr\System.Web.Optimization.resources.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\fr\System.Web.Razor.resources.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\fr\System.Web.WebPages.resources.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\EntityFramework.SqlServer.dll
+C:\Users\Administrateur\Desktop\Partage\TP WebsportV3\WebSport\bin\EntityFramework.SqlServer.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\ApplicationInsights.config
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\csc.exe
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\System.Collections.Immutable.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\System.Reflection.Metadata.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\vbc.exe
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\VBCSCompiler.exe
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\roslyn\VBCSCompiler.exe.config
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\WebSport.dll.config
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\WebSport.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\WebSport.pdb
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Antlr3.Runtime.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\BO.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\DAL.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\EntityFramework.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\EntityFramework.SqlServer.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.Agent.Intercept.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.DependencyCollector.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.Web.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.WindowsServer.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.ApplicationInsights.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.Web.Infrastructure.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Newtonsoft.Json.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Helpers.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Mvc.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Optimization.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Razor.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.WebPages.Deployment.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.WebPages.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.WebPages.Razor.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\WebGrease.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\BO.pdb
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\DAL.pdb
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\EntityFramework.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\EntityFramework.SqlServer.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.DependencyCollector.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.Web.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.AI.WindowsServer.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.ApplicationInsights.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Helpers.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Mvc.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Optimization.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.Razor.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.WebPages.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.WebPages.Deployment.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\System.Web.WebPages.Razor.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Antlr3.Runtime.pdb
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\Newtonsoft.Json.xml
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\fr\System.Web.Helpers.resources.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\fr\System.Web.Mvc.resources.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\fr\System.Web.Optimization.resources.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\fr\System.Web.Razor.resources.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\fr\System.Web.WebPages.resources.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\fr\System.Web.WebPages.Deployment.resources.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\bin\fr\System.Web.WebPages.Razor.resources.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\obj\Debug\WebSport.csprojResolveAssemblyReference.cache
+D:\TP WebsportV3\TP WebsportV3\WebSport\obj\Debug\WebSport.dll
+D:\TP WebsportV3\TP WebsportV3\WebSport\obj\Debug\WebSport.pdb
+C:\Users\clebellec2016\Source\Repos\SpeedParking\WebSport\obj\Debug\WebSport.csprojResolveAssemblyReference.cache
+C:\Users\clebellec2016\Source\Repos\SpeedParking\WebSport\obj\Debug\WebSport.dll
+C:\Users\clebellec2016\Source\Repos\SpeedParking\WebSport\obj\Debug\WebSport.pdb
