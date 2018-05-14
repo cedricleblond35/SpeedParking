@@ -16,11 +16,11 @@ namespace BO
         public string Adresse { get; set; }
         public string Ville { get; set; }
         public string CodePostal { get; set; }
-        public virtual List<Participant> Participants { get; set; }
-        public virtual Organizer Organizer { get; set; }
+        public virtual List<Convive> Convives { get; set; }
+        public virtual Organisateur Organisateur { get; set; }
         public Evenement()
         {
-            Participants = new List<Participant>();
+            Convives = new List<Convive>();
         }
     }
 }

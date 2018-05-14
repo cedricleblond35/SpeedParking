@@ -11,7 +11,7 @@ namespace WebSport.Controllers
 {
     public class CompetitorController : Controller
     {
-        private IRepository<Participant> repo;
+        private IRepository<Convive> repo;
         private IRepository<Race> raceRepo;
         Context dbContext = new Context();
         public CompetitorController()
@@ -100,7 +100,7 @@ namespace WebSport.Controllers
 
         // POST: Competitor/Delete/5
         [HttpPost]
-        public ActionResult Delete(Participant competitor)
+        public ActionResult Delete(Convive competitor)
         {
             try
             {

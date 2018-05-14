@@ -17,18 +17,18 @@ namespace DAL
             return new SerializerRepository<T>();
         }
 
-        public static IRepository<Participant> GetCompetitorRepository(Context context) 
+        public static IRepository<Convive> GetCompetitorRepository(Context context) 
         {
-            return new CompetitorRepository(context);
+            return new ConviveRepository(context);
         }
         public static IRepository<Race> GetRaceRepository(Context context)
         {
             return new RaceRepository(context);
         }
 
-        public static IRepository<Organizer> GetOrganizerRepository(Context context)
+        public static IRepository<Organisateur> GetOrganizerRepository(Context context)
         {
-            return new OrganizerRepository(context);
+            return new OrganisateurRepository(context);
         }
     }
 }

@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompetitorRepository.cs" />
+    <Compile Include="ConviveRepository.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\201803211541451_migration1.cs" />
@@ -58,7 +58,7 @@
       <DependentUpon>201803211541451_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="OrganizerRepository.cs" />
+    <Compile Include="OrganisateurRepository.cs" />
     <Compile Include="RaceRepository.cs" />
     <Compile Include="RepositoryFactory.cs" />
     <Compile Include="SerializerRepository.cs" />

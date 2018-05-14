@@ -8,6 +8,6 @@ namespace WebSport.Models
 {
     public class CreateEditOrganizerVM
     {
-        public Organizer Organizer { get; set;}
+        public Organisateur Organizer { get; set;}
     }
 }

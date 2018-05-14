@@ -28,7 +28,7 @@ namespace WebSport.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organizer organizer = db.Organizers.Find(id);
+            Organisateur organizer = db.Organizers.Find(id);
             if (organizer == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace WebSport.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organizer organizer)
+        public ActionResult Create([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organisateur organizer)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace WebSport.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organizer organizer = db.Organizers.Find(id);
+            Organisateur organizer = db.Organizers.Find(id);
             if (organizer == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace WebSport.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organizer organizer)
+        public ActionResult Edit([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organisateur organizer)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace WebSport.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organizer organizer = db.Organizers.Find(id);
+            Organisateur organizer = db.Organizers.Find(id);
             if (organizer == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace WebSport.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Organizer organizer = db.Organizers.Find(id);
+            Organisateur organizer = db.Organizers.Find(id);
             db.Organizers.Remove(organizer);
             db.SaveChanges();
             return RedirectToAction("Index");

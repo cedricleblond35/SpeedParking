@@ -9,7 +9,7 @@ namespace WebSport.Models
 {
     public class CreateEditCompetitorVM
     {
-        public Participant Competitor { get; set; }
+        public Convive Competitor { get; set; }
 
         [Display(Name = "La course")]
         public IEnumerable<Race> Races { get; set; }

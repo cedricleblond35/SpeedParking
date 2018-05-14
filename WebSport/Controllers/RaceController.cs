@@ -13,7 +13,7 @@ namespace WebSport.Controllers
     {
         Context dbContext = new Context();
         private IRepository<Race> repo;
-        private IRepository<Organizer> organizerRepo;
+        private IRepository<Organisateur> organizerRepo;
         public RaceController()
         {
             repo = RepositoryFactory.GetRaceRepository(dbContext);

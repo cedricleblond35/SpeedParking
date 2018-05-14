@@ -11,11 +11,11 @@ namespace DAL
     public class Context : DbContext 
     {
         
-        public DbSet<Race> Races { get; set; }
+        public DbSet<Evenement> Evenements { get; set; }
 
-        public DbSet<Participant> Competitors { get; set;}
+        public DbSet<Convive> Convives { get; set;}
 
-        public DbSet<Organizer> Organizers { get; set; }
+        public DbSet<Organisateur> Organisateurs { get; set; }
         public DbSet<Parking> Parkings { get; set; }
     }
 }
