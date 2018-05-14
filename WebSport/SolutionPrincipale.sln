@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSport", "TP WebsportV4\WebSport\WebSport.csproj", "{98969D31-B3C2-4669-94BD-B255A8EDC46F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionPrincipale", "SolutionPrincipale.csproj", "{98969D31-B3C2-4669-94BD-B255A8EDC46F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BO", "TP WebsportV4\BO\BO.csproj", "{34277620-43CF-48E1-AE46-1F57C87B82CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BO", "..\BO\BO.csproj", "{34277620-43CF-48E1-AE46-1F57C87B82CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "TP WebsportV4\BO\DAL\DAL.csproj", "{616EFB45-9E41-4592-A9AD-4AE015B2538A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", "{616EFB45-9E41-4592-A9AD-4AE015B2538A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
