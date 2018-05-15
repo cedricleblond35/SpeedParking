@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebSport.Controllers
+namespace SolutionPrincipale.Controllers
 {
     public class HomeController : Controller
     {
@@ -21,18 +21,6 @@ namespace WebSport.Controllers
         }
 
         public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        public ActionResult Race()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        public ActionResult Competitor()
         {
             ViewBag.Message = "Your contact page.";
 

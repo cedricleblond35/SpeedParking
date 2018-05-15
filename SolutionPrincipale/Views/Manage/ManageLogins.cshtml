@@ -1,4 +1,4 @@
-﻿@model WebSportAUTH.Models.ManageLoginsViewModel
+﻿@model SolutionPrincipale.Models.ManageLoginsViewModel
 @using Microsoft.Owin.Security
 @{
     ViewBag.Title = "Gérer vos connexions externes";
@@ -12,8 +12,8 @@
     if (loginProviders.Count() == 0) {
         <div>
             <p>
-                Aucun service d'authentification externe n'est configuré. Consultez <a href="https://go.microsoft.com/fwlink/?LinkId=313242">cet article</a>
-                pour plus de détails sur la configuration de cette application ASP.NET afin qu'elle prenne en charge la connexion par l'intermédiaire de services externes.
+                Il n'existe aucun service d'authentification externe configuré. Consultez <a href="http://go.microsoft.com/fwlink/?LinkId=313242">cet article</a>
+              pour des détails sur la configuration de cette application ASP.NET en vue de la prise en charge de la connexion via des services externes.
             </p>
         </div>
     }

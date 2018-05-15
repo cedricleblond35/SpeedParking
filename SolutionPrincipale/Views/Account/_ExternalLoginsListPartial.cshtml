@@ -1,4 +1,4 @@
-﻿@model WebSportAUTH.Models.ExternalLoginListViewModel
+﻿@model SolutionPrincipale.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
 <h4>Utilisez un autre service pour vous connecter.</h4>
@@ -8,8 +8,8 @@
     if (loginProviders.Count() == 0) {
         <div>
             <p>
-                Aucun service d'authentification externe n'est configuré. Consultez <a href="https://go.microsoft.com/fwlink/?LinkId=403804">cet article</a>
-                pour plus de détails sur la configuration de cette application ASP.NET afin qu'elle prenne en charge la connexion par l'intermédiaire de services externes.
+                Il n'existe aucun service d'authentification externe configuré. Consultez <a href="http://go.microsoft.com/fwlink/?LinkId=403804">cet article</a>
+                pour des détails sur la configuration de cette application ASP.NET en vue de la prise en charge de la connexion via des services externes.
             </p>
         </div>
     }

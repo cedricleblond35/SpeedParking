@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace WebSport
+namespace SolutionPrincipale
 {
     public class FilterConfig
     {

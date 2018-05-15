@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebSportAUTH.Models
+namespace SolutionPrincipale.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

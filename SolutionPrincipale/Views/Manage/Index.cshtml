@@ -1,4 +1,4 @@
-﻿@model WebSportAUTH.Models.IndexViewModel
+﻿@model SolutionPrincipale.Models.IndexViewModel
 @{
     ViewBag.Title = "Gérer";
 }
@@ -29,38 +29,35 @@
             @Html.ActionLink("Gérer", "ManageLogins") ]
         </dd>
         @*
-            Les numéros de téléphone peuvent être utilisés comme second facteur de vérification dans un système d'authentification à 2 facteurs.
+            Les numéros de téléphone peuvent servir de second facteur de vérification dans un système d'authentification à 2 facteurs.
              
-             Consultez <a href="https://go.microsoft.com/fwlink/?LinkId=403804">cet article</a>
-                pour plus de détails sur la configuration de cette application ASP.NET afin qu'elle prenne en charge l'utilisation de l'authentification à 2 facteurs à l'aide de SMS.
+             Consultez <a href="http://go.microsoft.com/fwlink/?LinkId=403804">cet article</a>
+                pour des détails sur la configuration de cette application ASP.NET en vue de la prise en charge de l'authentification à 2 facteurs via des SMS.
              
-             Décommentez le bloc suivant après avoir configuré l'authentification à 2 facteurs
+             Décommentez le bloc suivant après avoir configuré l'authentification à 2 facteurs
         *@
         @*  
             <dt>Numéro de téléphone :</dt>
             <dd>
-                @(Model.PhoneNumber ?? "None")
+                @(Model.PhoneNumber ?? "Aucun") [
                 @if (Model.PhoneNumber != null)
                 {
-                    <br />
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Supprimer" class="btn-link" />]</text>
-                    }
+                    @Html.ActionLink("Changer", "AddPhoneNumber")
+                    @: &nbsp;|&nbsp;
+                    @Html.ActionLink("Supprimer", "RemovePhoneNumber")
                 }
                 else
                 {
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                    @Html.ActionLink("Ajouter", "AddPhoneNumber")
                 }
+                ]
             </dd>
         *@
         <dt>Authentification à 2 facteurs :</dt>
         <dd>
             <p>
-                Aucun fournisseur d'authentification à deux facteurs n'est configuré. Consultez <a href="https://go.microsoft.com/fwlink/?LinkId=403804">cet article</a>
-                pour plus de détails sur la configuration de cette application ASP.NET afin qu'elle prenne en charge l'authentification à deux facteurs.
+                Il n'existe aucun fournisseur d'authentification à 2 facteurs configuré. Consultez <a href="http://go.microsoft.com/fwlink/?LinkId=403804">cet article</a>
+                pour des détails sur la configuration de cette application ASP.NET en vue de la prise en charge de l'authentification à 2 facteurs.
             </p>
             @*@if (Model.TwoFactor)
                 {
