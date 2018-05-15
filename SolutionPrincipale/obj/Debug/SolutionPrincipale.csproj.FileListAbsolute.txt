@@ -170,3 +170,5 @@ C:\Users\cleblond2016\Source\Repos\SpeedParking\SolutionPrincipale\bin\Microsoft
 C:\Users\cleblond2016\Source\Repos\SpeedParking\SolutionPrincipale\obj\Debug\SolutionPrincipale.csprojResolveAssemblyReference.cache
 C:\Users\cleblond2016\Source\Repos\SpeedParking\SolutionPrincipale\obj\Debug\SolutionPrincipale.dll
 C:\Users\cleblond2016\Source\Repos\SpeedParking\SolutionPrincipale\obj\Debug\SolutionPrincipale.pdb
+C:\Users\clebellec2016\Source\Repos\SpeedParking\SolutionPrincipale\obj\Debug\SolutionPrincipale.Migrations.migration1.resources
+C:\Users\clebellec2016\Source\Repos\SpeedParking\SolutionPrincipale\obj\Debug\SolutionPrincipale.csproj.GenerateResource.Cache
