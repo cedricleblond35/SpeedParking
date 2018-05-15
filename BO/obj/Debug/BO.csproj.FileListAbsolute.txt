@@ -22,3 +22,8 @@ C:\Users\clebellec2016\Source\Repos\SpeedParking\BO\bin\Debug\BO.pdb
 C:\Users\clebellec2016\Source\Repos\SpeedParking\BO\obj\Debug\BO.csprojResolveAssemblyReference.cache
 C:\Users\clebellec2016\Source\Repos\SpeedParking\BO\obj\Debug\BO.dll
 C:\Users\clebellec2016\Source\Repos\SpeedParking\BO\obj\Debug\BO.pdb
+C:\Users\cleblond2016\Source\Repos\SpeedParking\BO\bin\Debug\BO.dll
+C:\Users\cleblond2016\Source\Repos\SpeedParking\BO\bin\Debug\BO.pdb
+C:\Users\cleblond2016\Source\Repos\SpeedParking\BO\obj\Debug\BO.csprojResolveAssemblyReference.cache
+C:\Users\cleblond2016\Source\Repos\SpeedParking\BO\obj\Debug\BO.dll
+C:\Users\cleblond2016\Source\Repos\SpeedParking\BO\obj\Debug\BO.pdb

@@ -1,6 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    color: #333;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +25,42 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.promo-bg-pattern-v1-dark {
+  background: url(../assets/images/1-MCS-homeWeb-121217.jpg) no-repeat;
+  background-size: cover;
+  padding : 150px;
+  height : 350px;
+  color : white;
+  width:auto;
+  background-size: 100%;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+
+
+
+/*
+ * Template Name: Unify - Responsive Bootstrap Template
+ * Description: Business, Corporate, Portfolio, E-commerce, Blog and One Page Template.
+ * Version: 1.9.2
+ * Author: @htmlstream
+ * Website: http://htmlstream.com
+*/
+
+/*Import Global Compulsory CSS Files*/
+@import url(app.css);
+@import url(blocks.css);
+
+/*Import CSS Plugins*/
+@import url(plugins/style-switcher.css);
+
+* {
+	border-radius: 0;
+}
+
+

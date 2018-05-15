@@ -36,3 +36,13 @@ C:\Users\clebellec2016\Source\Repos\SpeedParking\DAL\bin\Debug\EntityFramework.x
 C:\Users\clebellec2016\Source\Repos\SpeedParking\DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\clebellec2016\Source\Repos\SpeedParking\DAL\obj\Debug\DAL.dll
 C:\Users\clebellec2016\Source\Repos\SpeedParking\DAL\obj\Debug\DAL.pdb
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\bin\Debug\DAL.dll.config
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\bin\Debug\DAL.dll
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\bin\Debug\DAL.pdb
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\bin\Debug\BO.dll
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\bin\Debug\BO.pdb
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\bin\Debug\EntityFramework.xml
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\obj\Debug\DAL.dll
+C:\Users\cleblond2016\Source\Repos\SpeedParking\DAL\obj\Debug\DAL.pdb
