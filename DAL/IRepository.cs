@@ -9,7 +9,6 @@ namespace DAL
 {
     public interface IRepository<T> where T : IIdentifiable
     {
-        //yolo
         List<T> GetAll();
         void Insert(T element);
         T GetById(int id);
