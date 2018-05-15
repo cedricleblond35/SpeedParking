@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using BO;
 
 namespace SolutionPrincipale.Models
 {
@@ -20,8 +21,7 @@ namespace SolutionPrincipale.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,10 @@ namespace SolutionPrincipale.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Convive> Convives { get; set; }
+
+        public DbSet<Organisateur> Organisateurs { get; set; }
+
+        public DbSet<Evenement> Evenements { get; set; }
     }
 }
