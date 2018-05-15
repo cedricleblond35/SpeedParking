@@ -22,9 +22,9 @@ namespace SolutionPrincipale
                     var userManager = new UserManager<ApplicationUser>
                         (new UserStore<ApplicationUser>(context));
 
-                    if (!roleManager.RoleExists(UserRoles.Administrator))
+                    if (!roleManager.RoleExists(BO.Constantes.Administrateur))
                     {
-                        roleManager.Create(new IdentityRole(UserRoles.Administrator));
+                        roleManager.Create(new IdentityRole(BO.Constantes.Administrateur));
                         var admin = new ApplicationUser
                         {
                             UserName = "Admin@gmail.com",
@@ -34,13 +34,13 @@ namespace SolutionPrincipale
                         var result = userManager.Create(admin, "Pa$$w0rd");
                         if (result.Succeeded)
                         {
-                            userManager.AddToRole(admin.Id, UserRoles.Administrator);
+                            userManager.AddToRole(admin.Id, BO.Constantes.Administrateur);
 
-                            if (!roleManager.RoleExists(UserRoles.Competitor))
-                                roleManager.Create(new IdentityRole(UserRoles.Competitor));
+                            if (!roleManager.RoleExists(BO.Constantes.Convive))
+                                roleManager.Create(new IdentityRole(BO.Constantes.Convive));
 
-                            if (!roleManager.RoleExists(UserRoles.Organizer))
-                                roleManager.Create(new IdentityRole(UserRoles.Organizer));
+                            if (!roleManager.RoleExists(BO.Constantes.Organisateur))
+                                roleManager.Create(new IdentityRole(BO.Constantes.Organisateur));
 
                             transaction.Commit();
                         }
