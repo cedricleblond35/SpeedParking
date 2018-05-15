@@ -42,6 +42,8 @@ namespace SolutionPrincipale
                             if (!roleManager.RoleExists(BO.Constantes.Organisateur))
                                 roleManager.Create(new IdentityRole(BO.Constantes.Organisateur));
 
+                            userManager.AddToRole(admin.Id, BO.Constantes.Organisateur);
+
                             transaction.Commit();
                         }
                     }
