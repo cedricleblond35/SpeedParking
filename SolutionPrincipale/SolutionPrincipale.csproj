@@ -211,6 +211,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\1-MCS-homeWeb-121217.jpg" />
+    <Content Include="assets\animate.css" />
+    <Content Include="assets\js\wow.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\wwwbootstrap.css" />
@@ -285,7 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\" />
     <Folder Include="Views\Organisateurs\" />
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,7 @@ textarea {
   color : white;
   width:auto;
   background-size: 100%;
+  min-height: 90vh;
 }
 
 .margin-bottom-20 {
