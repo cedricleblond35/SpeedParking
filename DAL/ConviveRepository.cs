@@ -1,46 +1,16 @@
 ﻿using BO;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace DAL
 {
-    class ConviveRepository : IRepository<Convive>
+    class ConviveRepository<T> : GenericRepository<Convive> where T : DbContext, IDbContext
     {
-        private Context dbContext;
+        public ConviveRepository(T context) : base(context)
+        {
 
-        public ConviveRepository(Context context)
-        {
-            dbContext = context;
-        }
-        public void Delete(int id)
-        {
-            dbContext.Convives.Remove(GetById(id));
-            dbContext.SaveChanges();
         }
 
-        public List<Convive> GetAll()
-        {
-            return dbContext.Convives.ToList();
-        }
-
-        public Convive GetById(int id)
-        {
-            return dbContext.Convives.Find(id);
-        }
-
-        public void Insert(Convive convive)
-        {
-            dbContext.Convives.Add(convive);
-            dbContext.SaveChanges();
-        }
-
-        public void Update(Convive convive)
+        public override void Update(Convive convive)
         {
             Convive c = GetById(convive.Id);
             c.Id = convive.Id;
@@ -48,7 +18,10 @@ namespace DAL
             c.Prenom = convive.Prenom;
             c.Email = convive.Email;
             c.DateNaissance = convive.DateNaissance;
-            c.Evenement = convive.Evenement;
+            c.Adresse = convive.Adresse;
+            c.Ville = convive.Ville;
+            c.CodePostal = convive.CodePostal;
+            //List<Evenement>
             dbContext.SaveChanges();
         }
     }

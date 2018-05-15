@@ -1,34 +1,36 @@
 ﻿//using BO;
 using BO;
+using DAL;
 using DAL.Migrations;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class RepositoryFactory
+    public class RepositoryFactory<C> where C : DbContext, IDbContext
     {
 
-        public static IRepository<T> GetRepository<T>() where T : IIdentifiable
+        public static IRepository<T> GetRepository<T>(DbContext context) where T : class, IIdentifiable
         {
-            return new SerializerRepository<T>();
+            return new GenericRepository<T>(context);
         }
 
-        public static IRepository<Convive> GetCompetitorRepository(Context context) 
+        public static IRepository<Convive> GetConviveRepository(C context) 
         {
-            return new ConviveRepository(context);
+            return new ConviveRepository<C>(context);
         }
-        public static IRepository<Race> GetRaceRepository(Context context)
+        public static IRepository<Evenement> GetEvenementRepository(C context)
         {
-            return new RaceRepository(context);
+            return new EvenementRepository<C>(context);
         }
 
-        public static IRepository<Organisateur> GetOrganizerRepository(Context context)
+        public static IRepository<Organisateur>  GetOrganisateurRepository(C context)
         {
-            return new OrganisateurRepository(context);
+            return new OrganisateurRepository<C>(context);
         }
     }
 }

@@ -51,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConviveRepository.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="IDbContext.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="EvenementRepository.cs" />
     <Compile Include="OrganisateurRepository.cs" />
-    <Compile Include="RaceRepository.cs" />
     <Compile Include="RepositoryFactory.cs" />
     <Compile Include="SerializerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

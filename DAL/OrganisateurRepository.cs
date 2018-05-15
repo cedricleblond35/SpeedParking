@@ -1,43 +1,15 @@
 ﻿using BO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace DAL.Migrations
 {
-    class OrganisateurRepository : IRepository<Organisateur>
+    class OrganisateurRepository<T> : GenericRepository<Organisateur> where T : DbContext, IDbContext
     {
-        private Context dbContext;
-
-        public OrganisateurRepository(Context context)
+        public OrganisateurRepository(T context) : base(context)
         {
-            dbContext = context;
-        }
-        public void Delete(int id)
-        {
-            dbContext.Organisateurs.Remove(GetById(id));
-            dbContext.SaveChanges();
-        }
 
-        public List<Organisateur> GetAll()
-        {
-            return dbContext.Organisateurs.ToList();
         }
-
-        public Organisateur GetById(int id)
-        {
-            return dbContext.Organisateurs.Find(id);
-        }
-
-        public void Insert(Organisateur organizer)
-        {
-            dbContext.Organisateurs.Add(organisateur);
-            dbContext.SaveChanges();
-        }
-
-        public void Update(Organisateur organisateur)
+        public override void Update(Organisateur organisateur)
         {
             Organisateur o = GetById(organisateur.Id);
             o.Id = organisateur.Id;
@@ -45,6 +17,10 @@ namespace DAL.Migrations
             o.Prenom = organisateur.Prenom;
             o.Email = organisateur.Email;
             o.DateNaissance = organisateur.DateNaissance;
+            o.Adresse = organisateur.Adresse;
+            o.Ville = organisateur.Ville;
+            o.CodePostal = organisateur.CodePostal;
+            //List<Evenement>
             dbContext.SaveChanges();
         }
 

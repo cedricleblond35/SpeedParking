@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using BO;
+using DAL;
+using System;
 
 namespace SolutionPrincipale.Models
 {
@@ -19,20 +21,20 @@ namespace SolutionPrincipale.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDbContext
     {
         public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
+        public DbSet<Convive> Convives { get; set; }
+        public DbSet<Evenement> Evenements { get; set; }
+        public DbSet<Organisateur> Organisateurs { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Convive> Convives { get; set; }
 
-        public DbSet<Organisateur> Organisateurs { get; set; }
-
-        public DbSet<Evenement> Evenements { get; set; }
     }
 }
