@@ -156,17 +156,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CompetitorController.cs" />
+    <Compile Include="Controllers\AbstractController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConviveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrganizersController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrganisateurController.cs" />
     <Compile Include="Controllers\RaceController.cs" />
     <Compile Include="Extension\HtmlHelperExtension.cs" />
     <Compile Include="Extension\TagBuilder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CreateEditCompetitorVM.cs" />
     <Compile Include="Models\CreateEditOrganizerVM.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,21 +216,39 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Competitor\Index.cshtml" />
-    <Content Include="Views\Competitor\Details.cshtml" />
-    <Content Include="Views\Competitor\Edit.cshtml" />
-    <Content Include="Views\Competitor\Delete.cshtml" />
+    <Content Include="Views\Convive\Index.cshtml" />
+    <Content Include="Views\Convive\Details.cshtml" />
+    <Content Include="Views\Convive\Edit.cshtml" />
+    <Content Include="Views\Convive\Delete.cshtml" />
     <Content Include="Views\Race\Create.cshtml" />
     <Content Include="Views\Race\Index.cshtml" />
-    <Content Include="Views\Competitor\Create.cshtml" />
+    <Content Include="Views\Convive\Create.cshtml" />
     <Content Include="Views\Race\Edit.cshtml" />
     <Content Include="Views\Race\Details.cshtml" />
     <Content Include="Views\Race\Delete.cshtml" />
-    <Content Include="Views\Organizers\Create.cshtml" />
-    <Content Include="Views\Organizers\Delete.cshtml" />
-    <Content Include="Views\Organizers\Details.cshtml" />
-    <Content Include="Views\Organizers\Edit.cshtml" />
-    <Content Include="Views\Organizers\Index.cshtml" />
+    <Content Include="Views\Organisateur\Create.cshtml" />
+    <Content Include="Views\Organisateur\Delete.cshtml" />
+    <Content Include="Views\Organisateur\Details.cshtml" />
+    <Content Include="Views\Organisateur\Edit.cshtml" />
+    <Content Include="Views\Organisateur\Index.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

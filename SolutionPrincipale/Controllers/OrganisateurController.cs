@@ -11,107 +11,107 @@ using DAL;
 
 namespace WebSport.Controllers
 {
-    public class OrganizersController : Controller
+    public class OrganisateurController : Controller
     {
         private Context db = new Context();
 
-        // GET: Organizers
+        // GET: Organisateurs
         public ActionResult Index()
         {
-            return View(db.Organizers.ToList());
+            return View(db.Organisateurs.ToList());
         }
 
-        // GET: Organizers/Details/5
+        // GET: Organisateurs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organisateur organizer = db.Organizers.Find(id);
-            if (organizer == null)
+            Organisateur organisateur = db.Organisateurs.Find(id);
+            if (organisateur == null)
             {
                 return HttpNotFound();
             }
-            return View(organizer);
+            return View(organisateur);
         }
 
-        // GET: Organizers/Create
+        // GET: Organisateurs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Organizers/Create
+        // POST: Organisateurs/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organisateur organizer)
+        public ActionResult Create([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organisateur organisateur)
         {
             if (ModelState.IsValid)
             {
-                db.Organizers.Add(organizer);
+                db.Organisateurs.Add(organisateur);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(organizer);
+            return View(organisateur);
         }
 
-        // GET: Organizers/Edit/5
+        // GET: Organisateurs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organisateur organizer = db.Organizers.Find(id);
-            if (organizer == null)
+            Organisateur organisateur = db.Organisateurs.Find(id);
+            if (organisateur == null)
             {
                 return HttpNotFound();
             }
-            return View(organizer);
+            return View(organisateur);
         }
 
-        // POST: Organizers/Edit/5
+        // POST: Organisateurs/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organisateur organizer)
+        public ActionResult Edit([Bind(Include = "Id,Nom,Prenom,Email,DateNaissance")] Organisateur organisateur)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(organizer).State = EntityState.Modified;
+                db.Entry(organisateur).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(organizer);
+            return View(organisateur);
         }
 
-        // GET: Organizers/Delete/5
+        // GET: Organisateurs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organisateur organizer = db.Organizers.Find(id);
-            if (organizer == null)
+            Organisateur organisateur = db.Organisateurs.Find(id);
+            if (organisateur == null)
             {
                 return HttpNotFound();
             }
-            return View(organizer);
+            return View(organisateur);
         }
 
-        // POST: Organizers/Delete/5
+        // POST: Organisateurs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Organisateur organizer = db.Organizers.Find(id);
-            db.Organizers.Remove(organizer);
+            Organisateur organisateur = db.Organisateurs.Find(id);
+            db.Organisateurs.Remove(organisateur);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

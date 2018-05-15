@@ -9,47 +9,45 @@ using WebSport.Models;
 
 namespace WebSport.Controllers
 {
-    public class CompetitorController : Controller
+    public class ConviveController : Controller
     {
         private IRepository<Convive> repo;
-        private IRepository<Race> raceRepo;
         Context dbContext = new Context();
-        public CompetitorController()
+        public ConviveController()
         {
-            repo = RepositoryFactory.GetCompetitorRepository(dbContext);
-            raceRepo = RepositoryFactory.GetRaceRepository(dbContext);
+            repo = RepositoryFactory.GetConviveRepository(dbContext);
         }
 
-        // GET: Competitor
+        // GET: Convive
         public ActionResult Index()
         {
             return View(repo.GetAll());
         }
 
-        // GET: Competitor/Details/5
+        // GET: Convive/Details/5
         public ActionResult Details(int id)
         {
             return View(repo.GetById(id));
         }
 
-        // GET: Competitor/Create
+        // GET: Convive/Create
         public ActionResult Create()
         {
-            var vm = new CreateEditCompetitorVM();
+            var vm = new CreateEditConviveVM();
             vm.Races = raceRepo.GetAll();
             return View(vm);
         }
 
-        // POST: Competitor/Create
+        // POST: Convive/Create
         [HttpPost]
-        public ActionResult Create(CreateEditCompetitorVM competitorVM)
+        public ActionResult Create(CreateEditConviveVM conviveVM)
         {
             try
             {
-                if (competitorVM.IdSelectedRace.HasValue)
-                    competitorVM.Competitor.Race = raceRepo.GetById(competitorVM.IdSelectedRace.Value);
+                if (conviveVM.IdSelectedRace.HasValue)
+                    conviveVM.Convive.Race = raceRepo.GetById(conviveVM.IdSelectedRace.Value);
 
-                repo.Insert(competitorVM.Competitor);
+                repo.Insert(conviveVM.Convive);
                 return RedirectToAction("Index");
             }
             catch(Exception e )
@@ -59,31 +57,31 @@ namespace WebSport.Controllers
             }
         }
 
-        // GET: Competitor/Edit/5
+        // GET: Convive/Edit/5
         public ActionResult Edit(int id)
         {
-            var vm = new CreateEditCompetitorVM();
-            vm.Competitor = repo.GetById(id);
-            if (vm.Competitor.Race != null)
+            var vm = new CreateEditConviveVM();
+            vm.Convive = repo.GetById(id);
+            if (vm.Convive.Race != null)
             {
-                vm.IdSelectedRace = vm.Competitor.Race.Id;
+                vm.IdSelectedRace = vm.Convive.Race.Id;
             }
 
             vm.Races = raceRepo.GetAll();
             return View(vm);
         }
 
-        // POST: Competitor/Edit/5
+        // POST: Convive/Edit/5
         [HttpPost]
-        public ActionResult Edit(CreateEditCompetitorVM vm)
+        public ActionResult Edit(CreateEditConviveVM vm)
         {
             try
             {
                 if (vm.IdSelectedRace.HasValue)
                 {
-                    vm.Competitor.Race = raceRepo.GetById(vm.IdSelectedRace.Value);
+                    vm.Convive.Race = raceRepo.GetById(vm.IdSelectedRace.Value);
                 }
-                repo.Update(vm.Competitor);
+                repo.Update(vm.Convive);
                 return RedirectToAction("Index");
             }
             catch
@@ -92,19 +90,19 @@ namespace WebSport.Controllers
             }
         }
 
-        // GET: Competitor/Delete/5
+        // GET: Convive/Delete/5
         public ActionResult Delete(int id)
         {
             return View(repo.GetById(id));
         }
 
-        // POST: Competitor/Delete/5
+        // POST: Convive/Delete/5
         [HttpPost]
-        public ActionResult Delete(Convive competitor)
+        public ActionResult Delete(Convive convive)
         {
             try
             {
-                repo.Delete(competitor.Id);
+                repo.Delete(convive.Id);
                 return RedirectToAction("Index");
             }
             catch
