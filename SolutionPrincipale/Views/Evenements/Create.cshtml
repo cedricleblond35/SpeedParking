@@ -44,7 +44,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DebutEvenement, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DebutEvenement, "", new { @class = "text-danger" })
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                <input class="form-control" id="single_cal" name="date" placeholder="MM/DD/YYY" type="text" />
             </div>
         </div>
 
@@ -96,22 +96,47 @@
     @Scripts.Render("~/bundles/jqueryval")
 }
 
-<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script>
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
+    @* Calcul la l'année *@
+    function dateNow() {
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1;
+        let yyyy = today.getFullYear();
+
+        if (dd < 10) { dd = '0' + dd; }
+        if(mm<10){ mm='0'+mm; } 
+
+        return mm + '/' + dd + '/' + yyyy;
+    }
+
+    @{/*
+    Configurer le daterangepicker
+    Source : 
+      https://github.com/dangrossman/daterangepicker/issues/1454
+      http://www.daterangepicker.com/#config
+    */}
+    $("input[id^='single_cal']").daterangepicker(
+        {
+        singleDatePicker: true,
+        showDropdowns: true,
+        autoUpdateInput: true,
+        minDate: dateNow(),
+        locale: {
+            format: 'DD/MM/YYYY',
+            customRangeLabel: 'Seleccionar rango',
+            daysOfWeek: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+                'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre',
+                'Décembre']
+        }
+        }
+    );
+
+
+
 </script>
