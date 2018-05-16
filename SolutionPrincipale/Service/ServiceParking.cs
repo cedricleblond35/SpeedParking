@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using BO;
+using Microsoft.VisualBasic.FileIO;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
@@ -8,24 +10,72 @@ namespace SolutionPrincipale.Service
 {
     public class ServiceParking
     {
-        private string envoiRequete()
+        private static string envoiRequete(string info)
         {
             var client = new WebClient();
-            var parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks");
+            var parkingsJson = "";
+            switch (info)
+            {
+                case "parks":
+                    parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks");
+                    break;
+                case "tarifs":
+                    parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks/timetable-and-prices");
+                    break;
+
+            }
 
             return parkingsJson;
         }
-        public List<Park> getListeParking(string stringJsonParkings)
+        public static List<Parking> getListeParking()
         {
-            var result = JsonConvert.DeserializeObject<RootObject>(stringJsonParkings);
+            //JSON
+            var result = JsonConvert.DeserializeObject<RootObject>(envoiRequete("info"));
             var parkings = result.parks;
-            return parkings;
-        }
-        public Features getListeFeatures(string stringJsonParkings)
-        {
-            var result = JsonConvert.DeserializeObject<RootObject>(stringJsonParkings);
             var features = result.features;
-            return features;
+            List<Parking> listeParkings = new List<Parking>();
+            foreach(var i in parkings)
+            {
+                listeParkings.Add(new Parking(i.id, i.parkInformation.name, i.parkInformation.status, i.parkInformation.max, i.parkInformation.free));
+            }
+            foreach (var n in features.features)
+            {
+                foreach (var j in listeParkings)
+                {
+                    if(j.Id == n.id)
+                    {
+                        j.GeometrieType = n.geometry.type;
+                        j.Coordonnees = n.geometry.coordinates;
+                        j.CrsType = n.crs.type;
+                        j.CrsNom = n.crs.properties.name;
+                    }
+                }
+            }
+            //CSV
+            /*using (TextFieldParser parser = new TextFieldParser(@"C:\Users\clebellec2016\Downloads\timetable-and-prices"))
+            {
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(";");
+                while (!parser.EndOfData)
+                {
+                    //Process row
+                    string[] fields = parser.ReadFields();
+                    foreach (string field in fields)
+                    {
+                        foreach (var j in listeParkings)
+                        {
+                            if (field == "Parking" && j.Id == field)
+                            {
+                                j.GeometrieType = n.geometry.type;
+                                j.Coordonnees = n.geometry.coordinates;
+                                j.CrsType = n.crs.type;
+                                j.CrsNom = n.crs.properties.name;
+                            }
+                        }
+                    }
+                }
+            }*/
+            return listeParkings;
         }
     }
 
