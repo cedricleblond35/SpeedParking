@@ -51,6 +51,7 @@ namespace SolutionPrincipale.Controllers
         {
             if (ModelState.IsValid)
             {
+                Console.WriteLine("essai !!!!!!!!!!!!!!!!");
                 db.Evenements.Add(evenement);
                 db.SaveChanges();
                 return RedirectToAction("Index");
