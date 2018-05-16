@@ -23,5 +23,19 @@ namespace BO
         {
             Convives = new List<Convive>();
         }
+
+        public Evenement(int id, int nbParticipants, string nom, string description, DateTime debutEvenement,
+            DateTime finEvenement, string adresse, string ville, string codePostal)
+        {
+            this.Id = id;
+            this.NbParticipants = nbParticipants;
+            this.Nom = nom;
+            this.Description = description;
+            this.DebutEvenement = debutEvenement;
+            this.FinEvenement = finEvenement;
+            this.Adresse = adresse;
+            this.Ville = ville;
+            this.CodePostal = codePostal;
+        }
     }
 }
