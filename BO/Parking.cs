@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Parking : IIdentifiable
+    public class Parking
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Nom { get; set; }
         public string Statut { get; set; }
         public int NbPlaces { get; set; }
@@ -20,9 +20,16 @@ namespace BO
         public string Adresse { get; set; }
         public string Ville { get; set; }
         public string CodePostal { get; set; }
-        public DateTime? HeureOuverture { get; set; }
-        public DateTime? HeureFermeture { get; set; }
-        public int PrixHoraire { get; set; }
+        public string Horaires { get; set; }
+        public string Tarifs { get; set; }
 
+        public Parking(string id, string nom, string statut, int nbPlaces, int nbPlacesLibres)
+        {
+            this.Id = id;
+            this.Nom = nom;
+            this.Statut = statut;
+            this.NbPlaces = nbPlaces;
+            this.NbPlacesLibres = nbPlacesLibres;
+        }
     }
 }
