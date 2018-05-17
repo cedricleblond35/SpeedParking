@@ -7,10 +7,9 @@ namespace BO
     {
         public virtual List<Evenement> Evenements { get; set; }
 
-        public Organisateur(string email, string idUser)
+        public Organisateur(string email, string idUser) : base(email, idUser)
         {
-            Email = email;
-            IdUser = idUser;
+
         }
     }
 }

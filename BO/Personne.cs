@@ -13,5 +13,11 @@ namespace BO
         public string Ville { get; set; }
         public string CodePostal { get; set; }
         public string IdUser { get; set; }
+
+        public Personne(string email, string idUser)
+        {
+            Email = email;
+            IdUser = idUser;
+        }
     }
 }

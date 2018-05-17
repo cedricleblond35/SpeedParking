@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SolutionPrincipale.Models;
+using BO;
 
 namespace SolutionPrincipale.Controllers
 {
@@ -17,6 +18,7 @@ namespace SolutionPrincipale.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -155,9 +157,13 @@ namespace SolutionPrincipale.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //aspNetUser
                     var currentUser = UserManager.FindByName(user.UserName);
-
                     var roleresult = UserManager.AddToRole(currentUser.Id, BO.Constantes.Convive);
+                    //Convive
+                    var convive = new Convive(user.UserName, currentUser.Id);
+                    db.Convives.Add(convive);
+                    db.SaveChanges();
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
