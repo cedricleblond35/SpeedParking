@@ -21,7 +21,7 @@ namespace BO
         [DisplayName("Durée événement (en min)")]
         public int DureeMinutes { get; set; }
         [DisplayName("Liste des thèmes")]
-        public List<Theme> Themes { get; set; }
+        public virtual List<Theme> Themes { get; set; }
         [DisplayName("Liste des images")]
         public List<Image> Images { get; set; }
         [DisplayName("Adresse")]

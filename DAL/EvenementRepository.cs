@@ -1,9 +1,9 @@
 ﻿using BO;
 using System.Data.Entity;
 
-namespace DAL.Migrations
+namespace DAL
 {
-    class EvenementRepository<T> : GenericRepository<Evenement> where T : DbContext, IDbContext
+    public class EvenementRepository<T> : GenericRepository<Evenement> where T : DbContext, IDbContext
     {
         public EvenementRepository(T context) : base(context)
         {

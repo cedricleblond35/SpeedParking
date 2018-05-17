@@ -1,9 +1,9 @@
 ﻿using BO;
 using System.Data.Entity;
 
-namespace DAL.Migrations
+namespace DAL
 {
-    class OrganisateurRepository<T> : GenericRepository<Organisateur> where T : DbContext, IDbContext
+    public class OrganisateurRepository<T> : GenericRepository<Organisateur> where T : DbContext, IDbContext
     {
         public OrganisateurRepository(T context) : base(context)
         {

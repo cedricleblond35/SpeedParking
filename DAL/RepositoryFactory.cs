@@ -1,13 +1,6 @@
 ﻿//using BO;
 using BO;
-using DAL;
-using DAL.Migrations;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -19,7 +12,7 @@ namespace DAL
             return new GenericRepository<T>(context);
         }
 
-        public static IRepository<Convive> GetConviveRepository(C context) 
+        public static IRepository<Convive> GetConviveRepository(C context)
         {
             return new ConviveRepository<C>(context);
         }
@@ -28,7 +21,7 @@ namespace DAL
             return new EvenementRepository<C>(context);
         }
 
-        public static IRepository<Organisateur>  GetOrganisateurRepository(C context)
+        public static IRepository<Organisateur> GetOrganisateurRepository(C context)
         {
             return new OrganisateurRepository<C>(context);
         }

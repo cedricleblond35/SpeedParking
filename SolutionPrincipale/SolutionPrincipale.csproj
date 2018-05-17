@@ -230,7 +230,10 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Cartographie.cs" />
+    <Compile Include="Service\ServiceEvenement.cs" />
+    <Compile Include="Service\ServiceGlobal.cs" />
     <Compile Include="Service\ServiceParking.cs" />
+    <Compile Include="Service\ServiceTheme.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

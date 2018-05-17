@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace DAL
 {
-    class ConviveRepository<T> : GenericRepository<Convive> where T : DbContext, IDbContext
+    public class ConviveRepository<T> : GenericRepository<Convive> where T : DbContext, IDbContext
     {
         public ConviveRepository(T context) : base(context)
         {
