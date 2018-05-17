@@ -7,12 +7,12 @@ using BO;
 using SolutionPrincipale.Models;
 using SolutionPrincipale.Service;
 using System.Collections.Generic;
+using DAL;
 
 namespace SolutionPrincipale.Controllers
 {
     public class EvenementsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Evenements
         public ActionResult Index()
@@ -26,7 +26,7 @@ namespace SolutionPrincipale.Controllers
             return View(liste);
             **/
 
-            return View(db.Evenements.ToList());
+            return View(ServiceEvenement.GetListeEvenements());
         }
 
         // GET: Evenements/Details/5
@@ -38,7 +38,7 @@ namespace SolutionPrincipale.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            evenement = db.Evenements.Find(id);
+            evenement = ServiceEvenement.GetOneEvenement(id);
             if (evenement.Adresse != "")
             {
                 ServiceCartographie.geocoder(evenement);
@@ -53,10 +53,11 @@ namespace SolutionPrincipale.Controllers
         // GET: Evenements/Create
         public ActionResult Create()
         {
-            List<Theme> themes = db.Themes.ToList();
-            CreateEditEvenementVM eve = new CreateEditEvenementVM();
-            eve.Themes = themes;
-            return View(eve);
+            List<Theme> themes = ServiceTheme.GetListeThemes();
+            var vm = new CreateEditEvenementVM();
+            vm.Evenement = new Evenement();
+            vm.Themes = themes;
+            return View(vm);
         }
 
         // POST: Evenements/Create
@@ -68,13 +69,8 @@ namespace SolutionPrincipale.Controllers
         {
             if (ModelState.IsValid)
             {
-                //si une adresse existe on là géolocalise
-                if (!String.IsNullOrWhiteSpace(evenement.Adresse))
-                {
-                    ServiceCartographie.geocoder(evenement);
-                }
-                db.Evenements.Add(evenement);
-                db.SaveChanges();
+                ServiceEvenement.AddEvenement(evenement);
+                ServiceGlobal.SaveAll();
                 return RedirectToAction("Index");
             }
 
@@ -88,7 +84,7 @@ namespace SolutionPrincipale.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evenement evenement = db.Evenements.Find(id);
+            Evenement evenement = ServiceEvenement.GetOneEvenement(id);
             if (evenement == null)
             {
                 return HttpNotFound();
@@ -105,8 +101,8 @@ namespace SolutionPrincipale.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(evenement).State = EntityState.Modified;
-                db.SaveChanges();
+                ServiceEvenement.EntryEvenement(evenement);
+                ServiceGlobal.SaveAll();
                 return RedirectToAction("Index");
             }
             return View(evenement);
@@ -119,7 +115,7 @@ namespace SolutionPrincipale.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evenement evenement = db.Evenements.Find(id);
+            Evenement evenement = ServiceEvenement.GetOneEvenement(id);
             if (evenement == null)
             {
                 return HttpNotFound();
@@ -132,9 +128,9 @@ namespace SolutionPrincipale.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Evenement evenement = db.Evenements.Find(id);
-            db.Evenements.Remove(evenement);
-            db.SaveChanges();
+            Evenement evenement = ServiceEvenement.GetOneEvenement(id);
+            ServiceEvenement.RemoveEvenement(evenement);
+            ServiceGlobal.SaveAll();
             return RedirectToAction("Index");
         }
 
@@ -142,7 +138,7 @@ namespace SolutionPrincipale.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                ServiceGlobal.Dispose();
             }
             base.Dispose(disposing);
         }
