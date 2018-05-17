@@ -41,7 +41,7 @@ namespace SolutionPrincipale.Controllers
             evenement = db.Evenements.Find(id);
             if (evenement.Adresse != "")
             {
-                Cartographie.geocoder(evenement);
+                ServiceCartographie.geocoder(evenement);
             }
             if (evenement == null)
             {
@@ -68,7 +68,11 @@ namespace SolutionPrincipale.Controllers
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine("essai !!!!!!!!!!!!!!!!");
+                //si une adresse existe on là géolocalise
+                if (!String.IsNullOrWhiteSpace(evenement.Adresse))
+                {
+                    ServiceCartographie.geocoder(evenement);
+                }
                 db.Evenements.Add(evenement);
                 db.SaveChanges();
                 return RedirectToAction("Index");

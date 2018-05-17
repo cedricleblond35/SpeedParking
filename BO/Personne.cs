@@ -22,6 +22,8 @@ namespace BO
         public string CodePostal { get; set; }
         [DisplayName("IdUser")]
         public string IdUser { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
 
         public Personne(string email, string idUser)
         {
