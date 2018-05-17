@@ -29,14 +29,17 @@ namespace SolutionPrincipale.Service
         public static void AddEvenement(Evenement e)
         {
             db.Evenements.Add(e);
+            ServiceGlobal.SaveAll();
         }
         public static void RemoveEvenement(Evenement e)
         {
             db.Evenements.Remove(e);
+            ServiceGlobal.SaveAll();
         }
         public static void EntryEvenement(Evenement e)
         {
             db.Entry(e).State = EntityState.Modified;
+            ServiceGlobal.SaveAll();
         }
     }
 }

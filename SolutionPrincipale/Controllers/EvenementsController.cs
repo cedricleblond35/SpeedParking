@@ -70,7 +70,6 @@ namespace SolutionPrincipale.Controllers
             if (ModelState.IsValid)
             {
                 ServiceEvenement.AddEvenement(evenement);
-                ServiceGlobal.SaveAll();
                 return RedirectToAction("Index");
             }
 
@@ -102,7 +101,6 @@ namespace SolutionPrincipale.Controllers
             if (ModelState.IsValid)
             {
                 ServiceEvenement.EntryEvenement(evenement);
-                ServiceGlobal.SaveAll();
                 return RedirectToAction("Index");
             }
             return View(evenement);
@@ -130,7 +128,6 @@ namespace SolutionPrincipale.Controllers
         {
             Evenement evenement = ServiceEvenement.GetOneEvenement(id);
             ServiceEvenement.RemoveEvenement(evenement);
-            ServiceGlobal.SaveAll();
             return RedirectToAction("Index");
         }
 
