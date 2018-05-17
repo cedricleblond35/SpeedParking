@@ -2,7 +2,7 @@
 
 namespace BO
 {
-    public class Personne : IIdentifiable
+    public class Personne : IIdentifiable, IAdresse
     {
         public int Id { get; set; }
         public string Nom { get; set; }
@@ -10,7 +10,7 @@ namespace BO
         public string Email { get; set; }
         public DateTime? DateNaissance { get; set; }
         public string Adresse { get; set; }
-        public string Ville { get; set; }
         public string CodePostal { get; set; }
+        public string Ville { get; set; }
     }
 }

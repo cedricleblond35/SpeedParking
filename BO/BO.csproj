@@ -43,6 +43,7 @@
     <Compile Include="Constantes.cs" />
     <Compile Include="Convive.cs" />
     <Compile Include="Evenement.cs" />
+    <Compile Include="IAdresse.cs" />
     <Compile Include="IIdentifiable.cs" />
     <Compile Include="Organisateur.cs" />
     <Compile Include="Parking.cs" />
