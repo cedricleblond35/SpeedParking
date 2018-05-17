@@ -12,5 +12,6 @@ namespace BO
         public string Adresse { get; set; }
         public string Ville { get; set; }
         public string CodePostal { get; set; }
+        public string IdUser { get; set; }
     }
 }

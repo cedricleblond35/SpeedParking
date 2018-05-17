@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using BO;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
@@ -35,6 +36,10 @@ namespace SolutionPrincipale
                         if (result.Succeeded)
                         {
                             userManager.AddToRole(admin.Id, BO.Constantes.Administrateur);
+
+                            var organisateur = new Organisateur(admin.Email,admin.Id);
+                            context.Organisateurs.Add(organisateur);
+                            context.SaveChanges();
 
                             if (!roleManager.RoleExists(BO.Constantes.Convive))
                                 roleManager.Create(new IdentityRole(BO.Constantes.Convive));
