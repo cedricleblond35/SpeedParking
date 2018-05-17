@@ -1,11 +1,11 @@
-﻿@model BO.Evenement
+﻿@model SolutionPrincipale.Models.CreateEditEvenementVM
 @using SolutionPrincipale.Extension;
 
 @{
     ViewBag.Title = "Create";
 }
 <div class="container">
-    <h2>Create</h2>
+    <h2>Création d'un événement</h2>
 
 
     @using (Html.BeginForm())
@@ -13,85 +13,34 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Evenement</h4>
+            <h4>Evénement</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+            @Html.CustomEditorFor(model => model.Evenement.Nom, "text")
+            @Html.CustomEditorFor(model => model.Evenement.Description, "text")
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Evenement.DebutEvenement, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DebutEvenement, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.CustomerDate(model => model.DebutEvenement, "DebutEvenement")
-                    @Html.ValidationMessageFor(model => model.DebutEvenement, "", new { @class = "text-danger" })
+                    @Html.CustomerDate(model => model.Evenement.DebutEvenement, "DebutEvenement")
+                    @Html.ValidationMessageFor(model => model.Evenement.DebutEvenement, "", new { @class = "text-danger" })
 
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.FinEvenement, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.CustomerDate(model => model.FinEvenement, "FinEvenement")
-                    @Html.ValidationMessageFor(model => model.FinEvenement, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.NbParticipants, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NbParticipants, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NbParticipants, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Ville, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Ville, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Ville, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CodePostal, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CodePostal, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CodePostal, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
+            @Html.CustomEditorFor(model => model.Evenement.DureeMinutes, "number")
+            @Html.CustomEditorFor(model => model.Evenement.NbParticipants, "number")
+            @Html.CustomEditorFor(model => model.Evenement.Adresse, "text")
+            @Html.CustomEditorFor(model => model.Evenement.Ville, "text")
+            @Html.CustomEditorFor(model => model.Evenement.CodePostal, "text")
+            @Html.CustomDropdownListFor(model => model.Evenement.Themes, model => model.IdSelectedThemes, Model.Evenement.Themes.Select(r => new SelectListItem { Text = r.Nom, Value = r.Id.ToString() }), false)
+            @Html.CustomButtonSubmit("Créer l'événement")
         </div>
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Retour à la liste des événements", "Index", null, new { @class = "btn btn-default" })
     </div>
 </div>
 @section Scripts {
@@ -107,36 +56,36 @@
     function dateNow() {
         let today = new Date();
         let dd = today.getDate();
-        let mm = today.getMonth()+1;
+        let mm = today.getMonth() + 1;
         let yyyy = today.getFullYear();
 
         if (dd < 10) { dd = '0' + dd; }
-        if(mm<10){ mm='0'+mm; } 
+        if (mm < 10) { mm = '0' + mm; }
 
         return mm + '/' + dd + '/' + yyyy;
     }
 
     @{/*
     Configurer le daterangepicker
-    Source : 
+    Source :
       https://github.com/dangrossman/daterangepicker/issues/1454
       http://www.daterangepicker.com/#config
     */}
     $("input[id^='single_cal']").daterangepicker(
         {
-        singleDatePicker: true,
-        showDropdowns: true,
-        autoUpdateInput: true,
-        minDate: dateNow(),
-        timePicker: true,
-        timePicker24Hour: true,
-        locale: {
-            format: 'DD/MM/YYYY HH:mm:ss',
-            daysOfWeek: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre',
-                'Décembre']
-        }
+            singleDatePicker: true,
+            showDropdowns: true,
+            autoUpdateInput: true,
+            minDate: dateNow(),
+            timePicker: true,
+            timePicker24Hour: true,
+            locale: {
+                format: 'DD/MM/YYYY HH:mm:ss',
+                daysOfWeek: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+                    'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre',
+                    'Décembre']
+            }
         }
     );
 

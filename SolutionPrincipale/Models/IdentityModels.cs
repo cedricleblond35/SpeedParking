@@ -36,5 +36,6 @@ namespace SolutionPrincipale.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<BO.Theme> Themes { get; set; }
     }
 }

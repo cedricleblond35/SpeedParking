@@ -17,7 +17,9 @@ namespace DAL.Migrations
             o.NbParticipants = evenement.NbParticipants;
             o.Description = evenement.Description;
             o.DebutEvenement = evenement.DebutEvenement;
-            o.FinEvenement = evenement.FinEvenement;
+            o.DureeMinutes = evenement.DureeMinutes;
+            o.Themes = evenement.Themes;
+            o.Images = evenement.Images;
             o.Adresse = evenement.Adresse;
             o.Ville = evenement.Ville;
             o.CodePostal = evenement.CodePostal;

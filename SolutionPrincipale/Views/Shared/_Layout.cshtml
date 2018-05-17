@@ -43,8 +43,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-
-                    <li>@Html.ActionLink("Evénement", "Index", "Evenements")</li>
+                    @if (Request.IsAuthenticated && User.IsInRole("Organisateur"))
+                    {
+                        <li>@Html.ActionLink("Evénements", "Index", "Evenements")</li>
+                        <li>@Html.ActionLink("Thèmes", "Index", "Themes")</li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("Convive"))
+                    {
+                        <li>@Html.ActionLink("Evénement", "Index", "Evenements")</li>
+                    }
                     <li>@Html.ActionLink("À propos de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
