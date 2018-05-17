@@ -1,6 +1,7 @@
 ﻿using BO;
 using DAL;
 using SolutionPrincipale.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 
@@ -28,6 +29,10 @@ namespace SolutionPrincipale.Service
 
         public static void AddEvenement(Evenement e)
         {
+            if (!String.IsNullOrWhiteSpace(e.Adresse))
+            {
+                ServiceCartographie.geocoder(e);
+            }
             db.Evenements.Add(e);
             ServiceGlobal.SaveAll();
         }
