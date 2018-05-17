@@ -33,8 +33,8 @@ namespace SolutionPrincipale.Service
                 statut = (string)jsonGeo["status"];
             } while (statut != "OK");
 
-            obj.Latitude = (string)jsonGeo["results"]["geometry"]["location"]["lat"];
-            obj.Longitude = (string)jsonGeo["results"]["geometry"]["location"]["lng"];
+            obj.Latitude = (string)jsonGeo["results"][0]["geometry"]["location"]["lat"];
+            obj.Longitude = (string)jsonGeo["results"][0]["geometry"]["location"]["lng"];
         }
     }
 }
