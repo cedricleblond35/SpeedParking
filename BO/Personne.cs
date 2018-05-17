@@ -2,7 +2,7 @@
 
 namespace BO
 {
-    public class Personne : IIdentifiable
+    public class Personne : IIdentifiable, IAdresse
     {
         public int Id { get; set; }
         public string Nom { get; set; }

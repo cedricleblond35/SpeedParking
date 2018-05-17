@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BO;
 using SolutionPrincipale.Models;
+using SolutionPrincipale.Service;
 
 namespace SolutionPrincipale.Controllers
 {
@@ -18,23 +19,32 @@ namespace SolutionPrincipale.Controllers
         // GET: Evenements
         public ActionResult Index()
         {
-            /*List<Evenement> liste = new List<Evenement>();
+            /**
+            List<Evenement> liste = new List<Evenement>();
             Evenement e = new Evenement(1,1000,"Event1","Description1",DateTime.Today.AddDays(5), DateTime.Today.AddDays(6),"30 rue ENI","RENNES","35000");
             Evenement e1 = new Evenement(2, 2000, "Event2", "Description2", DateTime.Today.AddDays(-5), DateTime.Today.AddDays(-4), "40 rue ENI", "RENNES", "35000");
             liste.Add(e);
-            liste.Add(e1);*/
-            //db.Evenements.ToList()
+            liste.Add(e1);
+            return View(liste);
+            **/
+            
             return View(db.Evenements.ToList());
         }
 
         // GET: Evenements/Details/5
         public ActionResult Details(int? id)
         {
+            Evenement evenement = null;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evenement evenement = db.Evenements.Find(id);
+            evenement = db.Evenements.Find(id);
+            if(evenement.Adresse != "")
+            {
+                Cartographie.geocoder(evenement);
+            }
             if (evenement == null)
             {
                 return HttpNotFound();
