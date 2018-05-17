@@ -34,6 +34,8 @@ namespace BO
         public virtual List<Convive> Convives { get; set; }
         [DisplayName("Organisateur")]
         public virtual Organisateur Organisateur { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
         public Evenement()
         {
             Convives = new List<Convive>();

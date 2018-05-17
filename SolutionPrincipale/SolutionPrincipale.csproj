@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201805170933487_mig3.Designer.cs">
       <DependentUpon>201805170933487_mig3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805171300571_mig4-LongLat.cs" />
+    <Compile Include="Migrations\201805171300571_mig4-LongLat.Designer.cs">
+      <DependentUpon>201805171300571_mig4-LongLat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CreateEditEvenementVM.cs" />
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805170933487_mig3.resx">
       <DependentUpon>201805170933487_mig3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805171300571_mig4-LongLat.resx">
+      <DependentUpon>201805171300571_mig4-LongLat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
