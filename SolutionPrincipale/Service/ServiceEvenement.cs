@@ -9,42 +9,61 @@ namespace SolutionPrincipale.Service
 {
     public class ServiceEvenement
     {
-        private static ApplicationDbContext db = new ApplicationDbContext();
-        private static GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
-
         public static List<Evenement> GetListeEvenements()
         {
-            return rep.GetAll();
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                return rep.GetAll();
+            }
         }
 
         public static Evenement GetOneEvenement(int? id)
         {
-            if(id.HasValue){
-                return null;
-            }else{
-                int idnn = (int)id;
-                return rep.GetById(idnn);
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                if (id.HasValue)
+                {
+                    return null;
+                }
+                else {
+                    int idnn = (int)id;
+                    return rep.GetById(idnn);
+                }
             }
         }
 
         public static void AddEvenement(Evenement e)
         {
-            if (!String.IsNullOrWhiteSpace(e.Adresse))
+            using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                ServiceCartographie.geocoder(e);
+                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                if (!String.IsNullOrWhiteSpace(e.Adresse))
+                {
+                    ServiceCartographie.geocoder(e);
+                }
+                db.Evenements.Add(e);
+                db.SaveChanges();
             }
-            db.Evenements.Add(e);
-            ServiceGlobal.SaveAll();
         }
         public static void RemoveEvenement(Evenement e)
         {
-            db.Evenements.Remove(e);
-            ServiceGlobal.SaveAll();
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                db.Evenements.Remove(e);
+                db.SaveChanges();
+            }
         }
         public static void EntryEvenement(Evenement e)
         {
-            db.Entry(e).State = EntityState.Modified;
-            ServiceGlobal.SaveAll();
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                db.Entry(e).State = EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

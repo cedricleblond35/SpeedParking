@@ -19,16 +19,7 @@
 
             @Html.CustomEditorFor(model => model.Evenement.Nom, "text")
             @Html.CustomEditorFor(model => model.Evenement.Description, "text")
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Evenement.DebutEvenement, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.CustomerDate(model => model.Evenement.DebutEvenement, "DebutEvenement")
-                    @Html.ValidationMessageFor(model => model.Evenement.DebutEvenement, "", new { @class = "text-danger" })
-
-                </div>
-            </div>
-
+            @Html.CustomEditorFor(model => model.Evenement.DebutEvenement, "datetime-local")
             @Html.CustomEditorFor(model => model.Evenement.DureeMinutes, "number")
             @Html.CustomEditorFor(model => model.Evenement.NbParticipants, "number")
             @Html.CustomEditorFor(model => model.Evenement.Adresse, "text")
@@ -46,49 +37,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
-<script>
-    @* Calcul la l'année *@
-    function dateNow() {
-        let today = new Date();
-        let dd = today.getDate();
-        let mm = today.getMonth() + 1;
-        let yyyy = today.getFullYear();
-
-        if (dd < 10) { dd = '0' + dd; }
-        if (mm < 10) { mm = '0' + mm; }
-
-        return mm + '/' + dd + '/' + yyyy;
-    }
-
-    @{/*
-    Configurer le daterangepicker
-    Source :
-      https://github.com/dangrossman/daterangepicker/issues/1454
-      http://www.daterangepicker.com/#config
-    */}
-    $("input[id^='single_cal']").daterangepicker(
-        {
-            singleDatePicker: true,
-            showDropdowns: true,
-            autoUpdateInput: true,
-            minDate: dateNow(),
-            timePicker: true,
-            timePicker24Hour: true,
-            locale: {
-                format: 'DD/MM/YYYY HH:mm:ss',
-                daysOfWeek: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-                monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                    'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre',
-                    'Décembre']
-            }
-        }
-    );
-
-
-
-</script>

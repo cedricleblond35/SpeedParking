@@ -9,13 +9,17 @@ namespace SolutionPrincipale.Extension
     public static class HtmlHelperExtension
     {
         private static string colmd10 = "<div class=\"col-md-10\">";
-        public static MvcHtmlString CustomerDate<TModel, TValue>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TValue>> expression, string name)
+        /*public static MvcHtmlString CustomerDate<TModel, TValue>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TValue>> expression, string name)
         {
             return MvcHtmlString.Create("<input id=\"single_cal\" name=\"" +
                 name +
-                "\" class=\"form-control\" placeholder=\"MM / DD / YYY\" type=\"text\" />");
-        }
-
+                "\" class=\"form-control\" placeholder=\"MM / DD / YYYY HH:mm:ss\" type=\"text\" />");
+        }*/
+        
+        /*public static MvcHtmlString CustomerDate<TModel, TValue>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TValue>> expression, string name)
+        {
+            return MvcHtmlString.Create("<div class='input-group date' id='datetimepicker1'><input type='text' class='form-control' name='"+name+"'/><span class='input-group-addon'><span class='glyphicon glyphicon-calendar'></span></span></div>");
+        }*/
         public static MvcHtmlString CustomIcone<TModel>(this HtmlHelper<TModel> html, string action, string glyphicon)
         {
             return MvcHtmlString.Create("<a href='@Url.Action(\"" + action + "\", new {id=item.Id})'><span class=\"glyphicon glyphicon-" + glyphicon + "\" aria-hidden=\"true\"></span></a>");
