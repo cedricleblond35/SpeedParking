@@ -21,8 +21,8 @@ namespace BO
         public string CodePostal { get; set; }
         public string Horaires { get; set; }
         public string Tarifs { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
 
         public Parking(string id, string nom, string statut, int nbPlaces, int nbPlacesLibres)
         {

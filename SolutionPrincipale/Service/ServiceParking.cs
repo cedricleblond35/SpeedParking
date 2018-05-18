@@ -17,8 +17,13 @@ namespace SolutionPrincipale.Service
 
         internal static List<Parking> GetListEventCarpark(Evenement evenement)
         {
-            latitudeEven = evenement.Latitude;
-            longEven = evenement.Longitude;
+            if (evenement.Latitude.HasValue) { 
+                latitudeEven = (double) evenement.Latitude;
+            }
+            if (evenement.Longitude.HasValue)
+            {
+                longEven = (double) evenement.Longitude;
+            }
             parkingsJson = GetListeParking();
 
 
