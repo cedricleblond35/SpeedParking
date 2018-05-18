@@ -25,7 +25,7 @@ namespace SolutionPrincipale.Service
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 GenericRepository<Theme> rep = new GenericRepository<Theme>(db);
-                if (id.HasValue)
+                if (!id.HasValue)
                 {
                     return null;
                 }

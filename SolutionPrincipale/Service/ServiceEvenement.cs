@@ -23,11 +23,12 @@ namespace SolutionPrincipale.Service
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
-                if (id.HasValue)
+                if (!id.HasValue)
                 {
                     return null;
                 }
-                else {
+                else
+                {
                     int idnn = (int)id;
                     return rep.GetById(idnn);
                 }

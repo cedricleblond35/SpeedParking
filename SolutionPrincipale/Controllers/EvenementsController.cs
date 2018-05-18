@@ -79,7 +79,7 @@ namespace SolutionPrincipale.Controllers
         // GET: Evenements/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
