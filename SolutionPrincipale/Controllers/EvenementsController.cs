@@ -8,6 +8,7 @@ using SolutionPrincipale.Models;
 using SolutionPrincipale.Service;
 using System.Collections.Generic;
 using DAL;
+using Microsoft.AspNet.Identity;
 
 namespace SolutionPrincipale.Controllers
 {
@@ -61,6 +62,7 @@ namespace SolutionPrincipale.Controllers
             if (vm?.Evenement != null)
             {
                 Evenement eve = vm.Evenement;
+                eve.Organisateur= ServiceOrganisateur.GetOneOrganisateur(User.Identity.GetUserId());
                 if (vm.IdSelectedThemes != null)
                 {
                     List<Theme> liste = new List<Theme>();
@@ -96,14 +98,24 @@ namespace SolutionPrincipale.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NbParticipants,Nom,Description,DebutEvenement,FinEvenement,Adresse,Ville,CodePostal")] Evenement evenement)
+        public ActionResult Edit(CreateEditEvenementVM vm)
         {
-            if (ModelState.IsValid)
+            if (vm?.Evenement != null)
             {
-                ServiceEvenement.EntryEvenement(evenement);
+                Evenement eve = vm.Evenement;
+                if (vm.IdSelectedThemes != null)
+                {
+                    List<Theme> liste = new List<Theme>();
+                    foreach (var i in vm.IdSelectedThemes)
+                    {
+                        liste.Add(ServiceTheme.GetOneTheme(i));
+                        eve.Themes = liste;
+                    }
+                }
+                ServiceEvenement.AddEvenement(eve);
                 return RedirectToAction("Index");
             }
-            return View(evenement);
+            return View(vm);
         }
 
         // GET: Evenements/Delete/5

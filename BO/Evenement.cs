@@ -20,7 +20,7 @@ namespace BO
         [DisplayName("Liste des thèmes")]
         public virtual List<Theme> Themes { get; set; }
         [DisplayName("Liste des images")]
-        public List<Image> Images { get; set; }
+        public virtual List<Image> Images { get; set; }
         [DisplayName("Adresse")]
         public string Adresse { get; set; }
         [DisplayName("Ville")]

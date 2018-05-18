@@ -25,6 +25,11 @@ namespace BO
         public string Latitude { get; set; }
         public string Longitude { get; set; }
 
+        public Personne()
+        {
+
+        }
+
         public Personne(string email, string idUser)
         {
             Email = email;

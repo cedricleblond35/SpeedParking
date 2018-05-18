@@ -23,8 +23,8 @@
             @Html.CustomEditorFor(model => model.Evenement.DureeMinutes, "number")
             @Html.CustomEditorFor(model => model.Evenement.NbParticipants, "number")
             @Html.CustomEditorFor(model => model.Evenement.Adresse, "text")
-            @Html.CustomEditorFor(model => model.Evenement.Ville, "text")
             @Html.CustomEditorFor(model => model.Evenement.CodePostal, "text")
+            @Html.CustomEditorFor(model => model.Evenement.Ville, "text")
             @Html.CustomDropdownListFor(model => model.Themes, model => model.IdSelectedThemes, Model.Themes.Select(r => new SelectListItem { Text = r.Nom, Value = r.Id.ToString() }), false)
             @Html.CustomButtonSubmit("Créer l'événement")
         </div>

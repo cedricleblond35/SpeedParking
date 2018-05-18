@@ -1,5 +1,6 @@
 ﻿using BO;
 using System.Data.Entity;
+using System.Linq;
 
 namespace DAL
 {
@@ -7,8 +8,8 @@ namespace DAL
     {
         public OrganisateurRepository(T context) : base(context)
         {
-
         }
+
         public override void Update(Organisateur organisateur)
         {
             Organisateur o = GetById(organisateur.Id);

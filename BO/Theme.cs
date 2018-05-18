@@ -14,5 +14,6 @@ namespace BO
         public string Nom { get; set; }
         [DisplayName("Description thème")]
         public string Description { get; set; }
+        public virtual List<Evenement> Evenements { get; set; }
     }
 }
