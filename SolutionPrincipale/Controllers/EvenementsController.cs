@@ -14,6 +14,7 @@ namespace SolutionPrincipale.Controllers
 {
     public class EvenementsController : Controller
     {
+        
 
         // GET: Evenements
         public ActionResult Index()
@@ -24,21 +25,22 @@ namespace SolutionPrincipale.Controllers
         // GET: Evenements/Details/5
         public ActionResult Details(int? id)
         {
-            Evenement evenement = null;
+            Evenement evenement;
+            List<Parking> parking;
 
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             evenement = ServiceEvenement.GetOneEvenement(id);
-            if (String.IsNullOrWhiteSpace(evenement.Adresse))
-            {
-                ServiceCartographie.geocoder(evenement);
-            }
             if (evenement == null)
             {
                 return HttpNotFound();
             }
+
+            parking = ServiceParking.GetListEventCarpark(evenement);
+
             return View(evenement);
         }
 
