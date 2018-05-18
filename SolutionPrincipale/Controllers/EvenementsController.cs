@@ -30,7 +30,7 @@ namespace SolutionPrincipale.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             evenement = ServiceEvenement.GetOneEvenement(id);
-            if (evenement.Adresse != "")
+            if (String.IsNullOrWhiteSpace(evenement.Adresse))
             {
                 ServiceCartographie.geocoder(evenement);
             }
