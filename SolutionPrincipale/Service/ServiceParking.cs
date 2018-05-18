@@ -5,19 +5,35 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
+using System;
 
 namespace SolutionPrincipale.Service
 {
     public class ServiceParking
     {
-        private static string envoiRequete(string info)
+        private static List<Parking> parkingsJson;
+        private static double longEven;
+        private static double latitudeEven;
+
+        internal static List<Parking> GetListEventCarpark(Evenement evenement)
+        {
+            latitudeEven = evenement.Latitude;
+            longEven = evenement.Longitude;
+            parkingsJson = GetListeParking();
+
+
+            throw new NotImplementedException();
+        }
+
+
+        private static string EnvoiRequete(string info)
         {
             var client = new WebClient();
             var parkingsJson = "";
             switch (info)
             {
                 case "parks":
-                    parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks");
+                    parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks?crs=EPSG:4326");
                     break;
                 case "tarifs":
                     parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks/timetable-and-prices");
@@ -27,10 +43,10 @@ namespace SolutionPrincipale.Service
 
             return parkingsJson;
         }
-        public static List<Parking> getListeParking()
+        public static List<Parking> GetListeParking()
         {
             //JSON
-            var result = JsonConvert.DeserializeObject<RootObject>(envoiRequete("info"));
+            var result = JsonConvert.DeserializeObject<RootObject>(EnvoiRequete("parks"));
             var parkings = result.parks;
             var features = result.features;
             List<Parking> listeParkings = new List<Parking>();
@@ -45,7 +61,9 @@ namespace SolutionPrincipale.Service
                     if(j.Id == n.id)
                     {
                         j.GeometrieType = n.geometry.type;
-                        j.Coordonnees = n.geometry.coordinates;
+                        j.Longitude = n.geometry.coordinates[0];
+                        j.Latitude = n.geometry.coordinates[1];
+
                         j.CrsType = n.crs.type;
                         j.CrsNom = n.crs.properties.name;
                     }
@@ -77,6 +95,8 @@ namespace SolutionPrincipale.Service
             }*/
             return listeParkings;
         }
+
+        
     }
 
     public class ParkInformation

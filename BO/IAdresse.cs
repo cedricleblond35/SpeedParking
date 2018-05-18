@@ -11,7 +11,7 @@ namespace BO
         string Adresse { get; set; }
         string CodePostal { get; set; }
         string Ville { get; set; }
-        string Latitude { get; set; }
-        string Longitude { get; set; }
+        double Latitude { get; set; }
+        double Longitude { get; set; }
     }
 }

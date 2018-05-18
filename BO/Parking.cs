@@ -14,7 +14,6 @@ namespace BO
         public int NbPlaces { get; set; }
         public int NbPlacesLibres { get; set; }
         public string GeometrieType { get; set; }
-        public List<double> Coordonnees { get; set; }
         public string CrsType { get; set; }
         public string CrsNom { get; set; }
         public string Adresse { get; set; }
@@ -22,8 +21,8 @@ namespace BO
         public string CodePostal { get; set; }
         public string Horaires { get; set; }
         public string Tarifs { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
 
         public Parking(string id, string nom, string statut, int nbPlaces, int nbPlacesLibres)
         {
