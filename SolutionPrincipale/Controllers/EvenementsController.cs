@@ -56,15 +56,24 @@ namespace SolutionPrincipale.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NbParticipants,Nom,Description,DebutEvenement,FinEvenement,Adresse,Ville,CodePostal")] Evenement evenement)
+        public ActionResult Create(CreateEditEvenementVM vm)
         {
-            if (ModelState.IsValid)
+            if (vm?.Evenement != null)
             {
-                ServiceEvenement.AddEvenement(evenement);
+                Evenement eve = vm.Evenement;
+                if (vm.IdSelectedThemes != null)
+                {
+                    List<Theme> liste = new List<Theme>();
+                    foreach (var i in vm.IdSelectedThemes)
+                    {
+                        liste.Add(ServiceTheme.GetOneTheme(i));
+                        eve.Themes = liste;
+                    }
+                }
+                ServiceEvenement.AddEvenement(eve);
                 return RedirectToAction("Index");
             }
-
-            return View(evenement);
+            return View(vm);
         }
 
         // GET: Evenements/Edit/5

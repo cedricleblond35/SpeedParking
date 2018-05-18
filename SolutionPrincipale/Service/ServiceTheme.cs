@@ -10,12 +10,30 @@ namespace SolutionPrincipale.Service
 {
     public class ServiceTheme
     {
-        private static ApplicationDbContext db = new ApplicationDbContext();
-        private static GenericRepository<Theme> rep = new GenericRepository<Theme>(db);
 
         public static List<Theme> GetListeThemes()
         {
-            return rep.GetAll();
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Theme> rep = new GenericRepository<Theme>(db);
+                return rep.GetAll();
+            }
+        }
+
+        public static Theme GetOneTheme(int? id)
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Theme> rep = new GenericRepository<Theme>(db);
+                if (id.HasValue)
+                {
+                    return null;
+                }
+                else {
+                    int idnn = (int)id;
+                    return rep.GetById(idnn);
+                }
+            }
         }
     }
 }

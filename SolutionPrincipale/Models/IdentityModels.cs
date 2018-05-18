@@ -30,12 +30,12 @@ namespace SolutionPrincipale.Models
         public DbSet<Convive> Convives { get; set; }
         public DbSet<Evenement> Evenements { get; set; }
         public DbSet<Organisateur> Organisateurs { get; set; }
+        public DbSet<Theme> Themes { get; set; }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<BO.Theme> Themes { get; set; }
     }
 }
