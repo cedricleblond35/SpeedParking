@@ -1,34 +1,16 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using BO;
 using SolutionPrincipale.Models;
 using SolutionPrincipale.Service;
 using System.Collections.Generic;
-using DAL;
+using Microsoft.AspNet.Identity;
 
 namespace SolutionPrincipale.Controllers
 {
     public class EvenementsController : Controller
     {
-        /// <summary>
-        /// Retourne la distance du parking par rappor au parking
-        /// 
-        /// </summary>
-        /// <param name="origin"></param>
-        /// <param name="destination"></param>
-        /// <param name="mode"></param>
-        /// <returns></returns>
-        public string selectDistanceParking(string origin, string destination, string mode)
-        {
-            return ServiceCartographie.selectDistanceParking(origin, destination,mode);
-        }
-        public string selectionParking(string origin, string destination, string mode)
-        {
-            return ServiceCartographie.selectDistanceParking(origin, destination, mode);
-        }
+
 
         // GET: Evenements
         public ActionResult Index()
@@ -40,30 +22,20 @@ namespace SolutionPrincipale.Controllers
         public ActionResult Details(int? id)
         {
             Evenement evenement;
-            List<Parking> parkings;
-            List<Parking> parkingsPlusProche;
+            List<Parking> parking;
 
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            //initialiser l'objet événement
             evenement = ServiceEvenement.GetOneEvenement(id);
             if (evenement == null)
             {
                 return HttpNotFound();
             }
 
-            //liste de l'ensemble des parkings
-            parkings = ServiceParking.GetListEventCarpark(evenement);
-
-            // evenement = ServiceParking.SelectNearestCarPark(evenement, parkings);
-
-
-
-            //ajouter la liste de tous les parkings à l'évément
-            evenement.Parkings = parkings;
+            parking = ServiceParking.GetListEventCarpark(evenement);
 
             return View(evenement);
         }
@@ -71,10 +43,9 @@ namespace SolutionPrincipale.Controllers
         // GET: Evenements/Create
         public ActionResult Create()
         {
-            List<Theme> themes = ServiceTheme.GetListeThemes();
             var vm = new CreateEditEvenementVM();
             vm.Evenement = new Evenement();
-            vm.Themes = themes;
+            vm.Themes = ServiceTheme.GetListeThemes();
             return View(vm);
         }
 
@@ -88,16 +59,8 @@ namespace SolutionPrincipale.Controllers
             if (vm?.Evenement != null)
             {
                 Evenement eve = vm.Evenement;
-                if (vm.IdSelectedThemes != null)
-                {
-                    List<Theme> liste = new List<Theme>();
-                    foreach (var i in vm.IdSelectedThemes)
-                    {
-                        liste.Add(ServiceTheme.GetOneTheme(i));
-                        eve.Themes = liste;
-                    }
-                }
-                ServiceEvenement.AddEvenement(eve);
+                eve.Organisateur = ServiceOrganisateur.GetOneOrganisateur(User.Identity.GetUserId());
+                ServiceEvenement.AddEvenement(eve, vm);
                 return RedirectToAction("Index");
             }
             return View(vm);
@@ -111,11 +74,19 @@ namespace SolutionPrincipale.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Evenement evenement = ServiceEvenement.GetOneEvenement(id);
+            CreateEditEvenementVM vm = new CreateEditEvenementVM();
+            vm.Evenement = evenement;
+            vm.Themes = ServiceTheme.GetListeThemes();
+            List<int> liste = new List<int>();
+            foreach (var i in evenement.Themes)
+            {
+                liste.Add(i.Id);
+            }
             if (evenement == null)
             {
                 return HttpNotFound();
             }
-            return View(evenement);
+            return View(vm);
         }
 
         // POST: Evenements/Edit/5
@@ -123,14 +94,15 @@ namespace SolutionPrincipale.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NbParticipants,Nom,Description,DebutEvenement,FinEvenement,Adresse,Ville,CodePostal")] Evenement evenement)
+        public ActionResult Edit(CreateEditEvenementVM vm)
         {
-            if (ModelState.IsValid)
+            if (vm?.Evenement != null)
             {
-                ServiceEvenement.EntryEvenement(evenement);
+                Organisateur o = ServiceOrganisateur.GetOneOrganisateur(User.Identity.GetUserId());
+                ServiceEvenement.EditEvenement(vm, o);
                 return RedirectToAction("Index");
             }
-            return View(evenement);
+            return View(vm);
         }
 
         // GET: Evenements/Delete/5

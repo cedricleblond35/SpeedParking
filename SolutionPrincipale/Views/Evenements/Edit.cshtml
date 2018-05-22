@@ -6,7 +6,7 @@
 }
 
 <div class="container">
-    <h2>Edit</h2>
+    <h2>Edition d'un événement</h2>
 
 
     @using (Html.BeginForm())
@@ -27,7 +27,7 @@
             @Html.CustomEditorFor(model => model.Evenement.Adresse, "text")
             @Html.CustomEditorFor(model => model.Evenement.CodePostal, "text")
             @Html.CustomEditorFor(model => model.Evenement.Ville, "text")
-
+            @Html.CustomDropdownListFor(model => model.Themes, model => model.IdSelectedThemes, Model.Themes.Select(r => new SelectListItem { Text = r.Nom, Value = r.Id.ToString() }), false)
             @Html.CustomButtonSubmit("Modifier l'événement")
         </div>
     }

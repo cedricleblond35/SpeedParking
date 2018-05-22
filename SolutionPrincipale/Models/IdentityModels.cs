@@ -25,6 +25,7 @@ namespace SolutionPrincipale.Models
     {
         public ApplicationDbContext() : base("Context")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Convive> Convives { get; set; }

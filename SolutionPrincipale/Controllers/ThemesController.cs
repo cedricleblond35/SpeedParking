@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BO;
 using SolutionPrincipale.Models;
+using SolutionPrincipale.Service;
 
 namespace SolutionPrincipale.Controllers
 {
@@ -18,7 +19,7 @@ namespace SolutionPrincipale.Controllers
         // GET: Themes
         public ActionResult Index()
         {
-            return View(db.Themes.ToList());
+            return View(ServiceTheme.GetListeThemes());
         }
 
         // GET: Themes/Details/5

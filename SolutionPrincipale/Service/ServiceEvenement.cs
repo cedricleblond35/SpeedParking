@@ -4,6 +4,7 @@ using SolutionPrincipale.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace SolutionPrincipale.Service
 {
@@ -55,8 +56,51 @@ namespace SolutionPrincipale.Service
                 {
                     ServiceCartographie.geocoder(e);
                 }
-                db.Evenements.Add(e);
-                db.SaveChanges();
+                rep.Insert(e);
+            }
+        }
+        public static void AddEvenement(Evenement e, CreateEditEvenementVM vm)
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                if (!String.IsNullOrWhiteSpace(e.Adresse))
+                {
+                    ServiceCartographie.geocoder(e);
+                }
+                List<Theme> liste = new List<Theme>();
+                if (vm.IdSelectedThemes != null)
+                {
+                    foreach (var i in vm.IdSelectedThemes)
+                    {
+                        liste.Add(ServiceTheme.GetOneTheme(i, db));
+                    }
+                    e.Themes = liste;
+                }
+                rep.Insert(e);
+            }
+        }
+
+        public static void EditEvenement(CreateEditEvenementVM vm, Organisateur o)
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                if (!String.IsNullOrWhiteSpace(vm.Evenement.Adresse))
+                {
+                    ServiceCartographie.geocoder(vm.Evenement);
+                }
+                List<Theme> liste = new List<Theme>();
+                if (vm.IdSelectedThemes != null)
+                {
+                    foreach (var i in vm.IdSelectedThemes)
+                    {
+                        liste.Add(ServiceTheme.GetOneTheme(i, db));
+                    }
+                    vm.Evenement.Themes = liste;
+                }
+                vm.Evenement.Organisateur = o;
+                rep.Update(vm.Evenement);
             }
         }
         public static void RemoveEvenement(Evenement e)
@@ -64,17 +108,7 @@ namespace SolutionPrincipale.Service
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
-                db.Evenements.Remove(e);
-                db.SaveChanges();
-            }
-        }
-        public static void EntryEvenement(Evenement e)
-        {
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
-                db.Entry(e).State = EntityState.Modified;
-                db.SaveChanges();
+                rep.Delete(e.Id);
             }
         }
     }
