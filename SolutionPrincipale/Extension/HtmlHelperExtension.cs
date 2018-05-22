@@ -38,6 +38,18 @@ namespace SolutionPrincipale.Extension
             return MvcHtmlString.Create("<div class=\"form-group\"><div class=\"col-md-offset-2 col-md-10\">" +
                 "<input type = \"submit\" value=\"" + label + "\" class=\"btn btn-default\"/></div></div>");
         }
+        /// <summary>
+        /// Select perso
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TValueLabel"></typeparam>
+        /// <typeparam name="TValueSelected"></typeparam>
+        /// <param name="html">@Html. devant</param>
+        /// <param name="expression">Liste à afficher</param>
+        /// <param name="expressionSelected">Element de la liste selectionné à afficher</param>
+        /// <param name="list">Personalisation de ce qui est affiché dans la liste (nom/prenom/...)</param>
+        /// <param name="multiple"></param>
+        /// <returns></returns>
         public static MvcHtmlString CustomDropdownListFor<TModel, TValueLabel, TValueSelected>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValueLabel>> expression, Expression<Func<TModel, TValueSelected>> expressionSelected, IEnumerable<SelectListItem> list, bool multiple)
         {
             MvcHtmlString chaine;

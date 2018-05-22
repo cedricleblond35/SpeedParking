@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -46,9 +44,9 @@ namespace DAL
             dbContext.SaveChanges();
         }
 
-        public virtual void Update(T competitor)
+        public virtual void Update(T element)
         {
-            dbContext.Entry(competitor).State = EntityState.Modified;
+            dbContext.Entry(element).State = EntityState.Modified;
             dbContext.SaveChanges();
         }
 

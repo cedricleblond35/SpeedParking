@@ -1,20 +1,16 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using BO;
 using SolutionPrincipale.Models;
 using SolutionPrincipale.Service;
 using System.Collections.Generic;
-using DAL;
 using Microsoft.AspNet.Identity;
 
 namespace SolutionPrincipale.Controllers
 {
     public class EvenementsController : Controller
     {
-        
+
 
         // GET: Evenements
         public ActionResult Index()
@@ -47,10 +43,9 @@ namespace SolutionPrincipale.Controllers
         // GET: Evenements/Create
         public ActionResult Create()
         {
-            List<Theme> themes = ServiceTheme.GetListeThemes();
             var vm = new CreateEditEvenementVM();
             vm.Evenement = new Evenement();
-            vm.Themes = themes;
+            vm.Themes = ServiceTheme.GetListeThemes();
             return View(vm);
         }
 
@@ -64,17 +59,8 @@ namespace SolutionPrincipale.Controllers
             if (vm?.Evenement != null)
             {
                 Evenement eve = vm.Evenement;
-                eve.Organisateur= ServiceOrganisateur.GetOneOrganisateur(User.Identity.GetUserId());
-                if (vm.IdSelectedThemes != null)
-                {
-                    List<Theme> liste = new List<Theme>();
-                    foreach (var i in vm.IdSelectedThemes)
-                    {
-                        liste.Add(ServiceTheme.GetOneTheme(i));
-                        eve.Themes = liste;
-                    }
-                }
-                ServiceEvenement.AddEvenement(eve);
+                eve.Organisateur = ServiceOrganisateur.GetOneOrganisateur(User.Identity.GetUserId());
+                ServiceEvenement.AddEvenement(eve, vm);
                 return RedirectToAction("Index");
             }
             return View(vm);
@@ -88,11 +74,19 @@ namespace SolutionPrincipale.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Evenement evenement = ServiceEvenement.GetOneEvenement(id);
+            CreateEditEvenementVM vm = new CreateEditEvenementVM();
+            vm.Evenement = evenement;
+            vm.Themes = ServiceTheme.GetListeThemes();
+            List<int> liste = new List<int>();
+            foreach (var i in evenement.Themes)
+            {
+                liste.Add(i.Id);
+            }
             if (evenement == null)
             {
                 return HttpNotFound();
             }
-            return View(evenement);
+            return View(vm);
         }
 
         // POST: Evenements/Edit/5
@@ -104,17 +98,8 @@ namespace SolutionPrincipale.Controllers
         {
             if (vm?.Evenement != null)
             {
-                Evenement eve = vm.Evenement;
-                if (vm.IdSelectedThemes != null)
-                {
-                    List<Theme> liste = new List<Theme>();
-                    foreach (var i in vm.IdSelectedThemes)
-                    {
-                        liste.Add(ServiceTheme.GetOneTheme(i));
-                        eve.Themes = liste;
-                    }
-                }
-                ServiceEvenement.AddEvenement(eve);
+                Organisateur o = ServiceOrganisateur.GetOneOrganisateur(User.Identity.GetUserId());
+                ServiceEvenement.EditEvenement(vm, o);
                 return RedirectToAction("Index");
             }
             return View(vm);
