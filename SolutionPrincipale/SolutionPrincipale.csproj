@@ -227,17 +227,22 @@
     <Compile Include="Migrations\201805171300571_mig4-LongLat.Designer.cs">
       <DependentUpon>201805171300571_mig4-LongLat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805221307231_mig5.cs" />
+    <Compile Include="Migrations\201805221307231_mig5.Designer.cs">
+      <DependentUpon>201805221307231_mig5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CreateEditEvenementVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\Cartographie.cs" />
-    <Compile Include="Service\ServiceEvenement.cs" />
-    <Compile Include="Service\ServiceGlobal.cs" />
-    <Compile Include="Service\ServiceParking.cs" />
-    <Compile Include="Service\ServiceTheme.cs" />
+    <Compile Include="Services\ServiceCartographie.cs" />
+    <Compile Include="Services\ServiceEvenement.cs" />
+    <Compile Include="Services\ServiceGlobal.cs" />
+    <Compile Include="Services\ServiceOrganisateur.cs" />
+    <Compile Include="Services\ServiceParking.cs" />
+    <Compile Include="Services\ServiceTheme.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -360,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805171300571_mig4-LongLat.resx">
       <DependentUpon>201805171300571_mig4-LongLat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805221307231_mig5.resx">
+      <DependentUpon>201805221307231_mig5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

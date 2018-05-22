@@ -9,7 +9,7 @@ namespace DAL
     public class GenericRepository<T> : IRepository<T> where T : class, IIdentifiable
     {
         protected DbContext dbContext;
-        private DbSet<T> set;
+        protected DbSet<T> set;
 
         public GenericRepository(DbContext context)
         {

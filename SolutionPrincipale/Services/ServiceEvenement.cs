@@ -85,7 +85,7 @@ namespace SolutionPrincipale.Service
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                GenericRepository<Evenement> rep = new GenericRepository<Evenement>(db);
+                EvenementRepository<ApplicationDbContext> rep = new EvenementRepository<ApplicationDbContext>(db);
                 if (!String.IsNullOrWhiteSpace(vm.Evenement.Adresse))
                 {
                     ServiceCartographie.geocoder(vm.Evenement);
