@@ -71,10 +71,10 @@
 
 
 
+    
 
 
-
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBLMmc9Fx12W79c3eJ0t7WV8e8cZgJ2irs&sensor=false"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBLMmc9Fx12W79c3eJ0t7WV8e8cZgJ2irs"></script>
     <script type="text/javascript">
 
         var locations = [
@@ -92,7 +92,7 @@
         */
         var geocoder;
         var map;
-        var address =@Html.DisplayFor(model => model.Ville);
+        var address =  "@Html.DisplayFor(model => model.Ville)";
 
         function initialize() {
             geocoder = new google.maps.Geocoder();
@@ -159,7 +159,9 @@
     </script>
 
    
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyBLMmc9Fx12W79c3eJ0t7WV8e8cZgJ2irs&sensor=false"></script>
+        <!--
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyBLMmc9Fx12W79c3eJ0t7WV8e8cZgJ2irs"></script>
+        -->
         <script type="text/javascript">
 
             function initialize2() {
@@ -188,9 +190,8 @@
                           label: "B",
                           map: map
                       });
-
                     // get route from A to B
-                    calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);
+                    //calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);
 
                 }
 
@@ -223,6 +224,24 @@
                     initialize2();
                 }
 
+
+                $(document).ready(function () {
+
+                    $.ajax({
+                        type: "GET",
+                        url:"@Url.Action("selectionParking", "Evenements", new { id = Model.Id })",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            console.log(response);
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+
+                    });
+
+                });
             </script>
 
             <p>

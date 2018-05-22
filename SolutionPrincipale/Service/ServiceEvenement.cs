@@ -9,6 +9,11 @@ namespace SolutionPrincipale.Service
 {
     public class ServiceEvenement
     {
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<Evenement> GetListeEvenements()
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
@@ -18,6 +23,12 @@ namespace SolutionPrincipale.Service
             }
         }
 
+        /// <summary>
+        /// 
+        /// Détail d'un évement
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Evenement GetOneEvenement(int? id)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())

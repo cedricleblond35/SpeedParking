@@ -11,9 +11,15 @@ namespace SolutionPrincipale.Service
 {
     public class ServiceParking
     {
-        private static List<Parking> parkingsJson;
+        private static List<Parking> ListParkings;
         private static double longEven;
         private static double latitudeEven;
+
+        internal static void SelectNearestCarPark(Evenement evenement, List<Parking> parkings)
+        {
+            throw new NotImplementedException();
+        }
+
 
         internal static List<Parking> GetListEventCarpark(Evenement evenement)
         {
@@ -24,30 +30,40 @@ namespace SolutionPrincipale.Service
             {
                 longEven = (double) evenement.Longitude;
             }
-            parkingsJson = GetListeParking();
-
-
-            throw new NotImplementedException();
+            ListParkings = GetListeParking();
+            
+            return ListParkings;
         }
 
-
+        /// <summary>
+        /// Retourne les coordonnées GPS (latitude, longitude) d'un parking
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
         private static string EnvoiRequete(string info)
         {
             var client = new WebClient();
-            var parkingsJson = "";
-            switch (info)
-            {
-                case "parks":
-                    parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks?crs=EPSG:4326");
-                    break;
-                case "tarifs":
-                    parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks/timetable-and-prices");
-                    break;
-
-            }
-
-            return parkingsJson;
+            return client.DownloadString(@"http://data.citedia.com/r1/parks?crs=EPSG:4326");
+            /*
+           switch (info)
+           {
+               case "parks":
+                   parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks?crs=EPSG:4326");
+                   break;
+              case "tarifs":
+                   parkingsJson = client.DownloadString(@"http://data.citedia.com/r1/parks/timetable-and-prices");
+                   break;
         }
+        return parkingsJson;
+        */
+
+
+        }
+
+        /// <summary>
+        /// Retourne une liste de tous les parkings
+        /// </summary>
+        /// <returns></returns>
         public static List<Parking> GetListeParking()
         {
             //JSON
@@ -101,7 +117,7 @@ namespace SolutionPrincipale.Service
             return listeParkings;
         }
 
-        
+       
     }
 
     public class ParkInformation

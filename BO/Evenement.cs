@@ -33,6 +33,8 @@ namespace BO
         public virtual Organisateur Organisateur { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public List<Parking> Parkings  { get; set; }
+
         public Evenement()
         {
             Convives = new List<Convive>();
@@ -55,5 +57,15 @@ namespace BO
             Ville = ville;
             CodePostal = codePostal;
         }
+
+        /// <summary>
+        /// Ajouter un parking à la liste des parkings de l'événement
+        /// </summary>
+        /// <param name="parking"></param>
+        public void AddParking(Parking parking)
+        {
+            Parkings.Add(parking);
+        }
+        
     }
 }

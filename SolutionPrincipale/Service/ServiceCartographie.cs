@@ -7,15 +7,40 @@ using System.Net;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using System.Web.Mvc;
 
 namespace SolutionPrincipale.Service
 {
     public static class ServiceCartographie
     {
-        private static string geocoderJson = null;
-        private static string statut = null;
-        private static JObject jsonGeo = null;
 
+        private static string statut = null;
+        private static JObject jsonObject = null;
+        private static string jsonReception;
+
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="destination"></param>
+        /// <param name="mode"></param>
+        /// <returns></returns>
+        internal static string selectDistanceParking(string origin, string destination, string mode)
+        {
+            string adresseUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origin + "&destinations="+ destination + "&mode="+ mode + "&language=fr-FR&key=";
+            var client = new WebClient();
+            jsonReception = client.DownloadString(adresseUrl);
+            jsonObject = JObject.Parse(jsonReception);
+            return (string)jsonObject["rows"][0]["elements"][0]["distance"]["value"];
+        }
+
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
         public static void geocoder<T>(T obj) where T : IAdresse
         {
             string adresse = obj.Adresse + ", " + obj.CodePostal + ", " + obj.Ville;
@@ -28,13 +53,13 @@ namespace SolutionPrincipale.Service
             //Tant qu'on a pas le json, intérroger maps
             do
             {
-                geocoderJson = client.DownloadString(geocoder);
-                jsonGeo = JObject.Parse(geocoderJson);
-                statut = (string)jsonGeo["status"];
+                jsonReception = client.DownloadString(geocoder);
+                jsonObject = JObject.Parse(jsonReception);
+                statut = (string)jsonObject["status"];
             } while (statut != "OK");
 
-            obj.Latitude = (double)jsonGeo["results"][0]["geometry"]["location"]["lat"];
-            obj.Longitude = (double)jsonGeo["results"][0]["geometry"]["location"]["lng"];
+            obj.Latitude = (double)jsonObject["results"][0]["geometry"]["location"]["lat"];
+            obj.Longitude = (double)jsonObject["results"][0]["geometry"]["location"]["lng"];
         }
     }
 }
