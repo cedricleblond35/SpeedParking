@@ -16,12 +16,14 @@ namespace SolutionPrincipale.Controllers
         {
             ListeEvenementsVM vm = new ListeEvenementsVM();
             vm.ListeEvenements = ServiceEvenement.GetListeEvenements();
-
+            Convive c = null;
             if (User.IsInRole("Convive"))
             {
-                Convive c = ServiceConvive.GetOneConvive(User.Identity.GetUserId());
+                c = ServiceConvive.GetOneConvive(User.Identity.GetUserId());
                 vm.ListeEvenementsInscris = ServiceConvive.GetListeEvenementsInscris(c);
             }
+            System.Console.WriteLine(c);
+            System.Console.WriteLine(vm);
             return View(vm);
         }
 
@@ -134,6 +136,25 @@ namespace SolutionPrincipale.Controllers
         {
             Evenement evenement = ServiceEvenement.GetOneEvenement(id);
             ServiceEvenement.RemoveEvenement(evenement);
+            return RedirectToAction("Index");
+        }
+
+        // GET: Evenements/Inscription/5
+        public ActionResult Inscription(int id)
+        {
+            Evenement e = ServiceEvenement.GetOneEvenement(id);
+            Convive c = ServiceConvive.GetOneConvive(User.Identity.GetUserId());
+            ServiceConvive.Inscription(c, e);
+            return RedirectToAction("Index");
+        }
+
+
+        // GET: Evenements/Desinscription/5
+        public ActionResult Desinscription(int id)
+        {
+            Evenement e = ServiceEvenement.GetOneEvenement(id);
+            Convive c = ServiceConvive.GetOneConvive(User.Identity.GetUserId());
+            ServiceConvive.Desinscription(c, e);
             return RedirectToAction("Index");
         }
 

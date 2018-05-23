@@ -4,7 +4,7 @@ namespace BO
 {
     public class Convive : Personne
     {
-        public List<Evenement> EvenementsInscris { get; set; }
+        public virtual List<Evenement> EvenementsInscris { get; set; } = new List<Evenement>();
 
         public Convive() : base()
         {

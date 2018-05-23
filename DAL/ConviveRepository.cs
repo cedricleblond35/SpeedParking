@@ -1,5 +1,8 @@
 ﻿using BO;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using System;
 
 namespace DAL
 {
@@ -9,10 +12,14 @@ namespace DAL
         {
 
         }
+        public override Convive GetById(int id)
+        {
+            return set.Include(c1 => c1.EvenementsInscris).SingleOrDefault(c2 => c2.Id == id);
+        }
 
         public override void Update(Convive convive)
         {
-            Convive c = GetById(convive.Id);
+            Convive c = set.Include(c1 => c1.EvenementsInscris).SingleOrDefault(c2 => c2.Id == convive.Id);
             c.Id = convive.Id;
             c.Nom = convive.Nom;
             c.Prenom = convive.Prenom;
@@ -21,7 +28,11 @@ namespace DAL
             c.Adresse = convive.Adresse;
             c.Ville = convive.Ville;
             c.CodePostal = convive.CodePostal;
-            //List<Evenement>
+            c.EvenementsInscris.Clear();
+            foreach (var e in convive.EvenementsInscris)
+            {
+                c.EvenementsInscris.Add(e);
+            }
             dbContext.SaveChanges();
         }
     }

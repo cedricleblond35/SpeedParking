@@ -61,7 +61,8 @@ namespace SolutionPrincipale.Services
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                return db.Convives.FirstOrDefault(p => p.Id == id).EvenementsInscris;
+                var liste = db.Convives.FirstOrDefault(p => p.Id == id).EvenementsInscris;
+                return liste;
             }
         }
 
@@ -70,11 +71,57 @@ namespace SolutionPrincipale.Services
         /// </summary>
         /// <param name="c">Convive dont on souhaite récupérer la liste des événements inscris</param>
         /// <returns>List<Evenement></returns>
-        public static List<Evenement> GetListeEvenementsInscris(Convive c)
+        public static List<Evenement> GetListeEvenementsInscris(Convive convive)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                return db.Convives.FirstOrDefault(p => p.Id == c.Id).EvenementsInscris;
+                ConviveRepository<ApplicationDbContext> rep = new ConviveRepository<ApplicationDbContext>(db);
+                return rep.GetById(convive.Id).EvenementsInscris;
+            }
+        }
+
+        /// <summary>
+        /// Inscription d'un convive à un événement
+        /// </summary>
+        /// <param name="c">Convive qui s'inscrit</param>
+        /// <param name="e">Evénement auquel il s'inscrit</param>
+        /// <returns>bool</returns>
+        public static bool Inscription(Convive convive, Evenement evenement)
+        {
+            List<Evenement> eveInscris = GetListeEvenementsInscris(convive);
+            if (eveInscris != null && eveInscris.Any(e1=>e1.Id == evenement.Id))
+            {
+                return false;
+            }
+            convive.EvenementsInscris.Add(evenement);
+            EditConvive(convive);
+            return true;
+        }
+
+        public static bool Desinscription(Convive convive, Evenement evenement)
+        {
+            List<Evenement> eveInscris = GetListeEvenementsInscris(convive);
+            if (eveInscris == null || !eveInscris.Any(e1 => e1.Id == evenement.Id))
+            {
+                return false;
+            }
+            convive.EvenementsInscris.Remove(evenement);
+            EditConvive(convive);
+            return true;
+        }
+
+        public static void EditConvive(Convive convive)
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                ConviveRepository<ApplicationDbContext> rep = new ConviveRepository<ApplicationDbContext>(db);
+                List<Evenement> liste = new List<Evenement>();
+                foreach (var evenement in convive.EvenementsInscris)
+                {
+                    liste.Add(db.Evenements.Find(evenement.Id));
+                }
+                convive.EvenementsInscris = liste;
+                rep.Update(convive);
             }
         }
     }

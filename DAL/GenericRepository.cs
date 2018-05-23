@@ -33,7 +33,7 @@ namespace DAL
             return set.Where(predicate).ToList();
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return set.Find(id);
         }
