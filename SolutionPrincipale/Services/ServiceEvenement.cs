@@ -11,10 +11,9 @@ namespace SolutionPrincipale.Service
     public class ServiceEvenement
     {
         /// <summary>
-        /// 
-        /// 
+        /// Récupération de tous les événements
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List<Evenement></returns>
         public static List<Evenement> GetListeEvenements()
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
@@ -25,11 +24,10 @@ namespace SolutionPrincipale.Service
         }
 
         /// <summary>
-        /// 
-        /// Détail d'un évement
+        /// Récupération d'un événement
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id de l'événement à récupérer</param>
+        /// <returns>Evenement</returns>
         public static Evenement GetOneEvenement(int? id)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
@@ -47,6 +45,10 @@ namespace SolutionPrincipale.Service
             }
         }
 
+        /// <summary>
+        /// Ajout d'un événement
+        /// </summary>
+        /// <param name="e">Evénement à ajouter</param>
         public static void AddEvenement(Evenement e)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
@@ -59,6 +61,12 @@ namespace SolutionPrincipale.Service
                 rep.Insert(e);
             }
         }
+
+        /// <summary>
+        /// Ajout d'un événement via le viewModel
+        /// </summary>
+        /// <param name="e">Evénement à ajouter</param>
+        /// <param name="vm">ViewModel servant de base à la création du nouvel événement</param>
         public static void AddEvenement(Evenement e, CreateEditEvenementVM vm)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
@@ -81,6 +89,11 @@ namespace SolutionPrincipale.Service
             }
         }
 
+        /// <summary>
+        /// Edition d'un élément
+        /// </summary>
+        /// <param name="vm">ViewModel de base servant à la modification de l'élément existant</param>
+        /// <param name="o">Organisateur de l'événement</param>
         public static void EditEvenement(CreateEditEvenementVM vm, Organisateur o)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
@@ -103,6 +116,11 @@ namespace SolutionPrincipale.Service
                 rep.Update(vm.Evenement);
             }
         }
+
+        /// <summary>
+        /// Suppression d'un événement
+        /// </summary>
+        /// <param name="e">Evénement à supprimer</param>
         public static void RemoveEvenement(Evenement e)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())

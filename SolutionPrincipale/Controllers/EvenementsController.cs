@@ -5,17 +5,24 @@ using SolutionPrincipale.Models;
 using SolutionPrincipale.Service;
 using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
+using SolutionPrincipale.Services;
 
 namespace SolutionPrincipale.Controllers
 {
     public class EvenementsController : Controller
     {
-
-
         // GET: Evenements
         public ActionResult Index()
         {
-            return View(ServiceEvenement.GetListeEvenements());
+            ListeEvenementsVM vm = new ListeEvenementsVM();
+            vm.ListeEvenements = ServiceEvenement.GetListeEvenements();
+
+            if (User.IsInRole("Convive"))
+            {
+                Convive c = ServiceConvive.GetOneConvive(User.Identity.GetUserId());
+                vm.ListeEvenementsInscris = ServiceConvive.GetListeEvenementsInscris(c);
+            }
+            return View(vm);
         }
 
         // GET: Evenements/Details/5

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BO.Evenement>
+﻿@model SolutionPrincipale.Models.ListeEvenementsVM
 @using SolutionPrincipale.Extension
 
 @{
@@ -8,129 +8,135 @@
 <div class="container">
     @if (Request.IsAuthenticated && User.IsInRole("Organisateur"))
     {
-    <h2>Liste des événements</h2>
+        <h2>Liste des événements</h2>
 
-    <p>
-        @Html.ActionLink("Créer un événement", "Create", null, new { @class = "btn btn-default" })
-    </p>
-    <table class="table table-bordered table-striped">
-        <caption>Liste des événements à venir</caption>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Nom)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
-            <th>@Html.DisplayNameFor(model => model.DebutEvenement)</th>
-            <th>@Html.DisplayNameFor(model => model.DureeMinutes)</th>
-            <th>@Html.DisplayNameFor(model => model.Adresse)</th>
-            <th>@Html.DisplayNameFor(model => model.NbParticipants)</th>
-            <th>Actions</th>
-        </tr>
+        <p>@Html.ActionLink("Créer un événement", "Create", null, new { @class = "btn btn-default" })</p>
+            <table class="table table-bordered table-striped">
+                <caption>Liste des événements à venir</caption>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Nom)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().DebutEvenement)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().DureeMinutes)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Adresse)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().NbParticipants)</th>
+                    <th>Actions</th>
+                </tr>
 
-        @foreach (var item in Model.Where(p => p.DebutEvenement >= DateTime.Now))
-        {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Nom)</td>
-            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-            <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
-            <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
-            <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
-            <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
-            <td>
-                @Html.CustomIcone(Url, item.Id, "Edit", "pencil")  |
-                @Html.CustomIcone(Url, item.Id, "Details", "search")  |
-                @Html.CustomIcone(Url, item.Id, "Delete", "trash")
-            </td>
-        </tr>
-        }
-    </table>
-    <table class="table table-bordered table-striped">
-        <caption>Liste des événements passés</caption>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Nom)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
-            <th>@Html.DisplayNameFor(model => model.DebutEvenement)</th>
-            <th>@Html.DisplayNameFor(model => model.DureeMinutes)</th>
-            <th>@Html.DisplayNameFor(model => model.Adresse)</th>
-            <th>@Html.DisplayNameFor(model => model.NbParticipants)</th>
-            <th>Actions</th>
-        </tr>
+                @foreach (var item in Model.ListeEvenements.Where(p => p.DebutEvenement >= DateTime.Now))
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
+                        <td>
+                            @Html.CustomIcone(Url, item.Id, "Edit", "pencil")  |
+                            @Html.CustomIcone(Url, item.Id, "Details", "search")  |
+                            @Html.CustomIcone(Url, item.Id, "Delete", "trash")
+                        </td>
+                    </tr>
+                }
+            </table>
+            <table class="table table-bordered table-striped">
+                <caption>Liste des événements passés</caption>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Nom)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().DebutEvenement)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().DureeMinutes)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Adresse)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().NbParticipants)</th>
+                    <th>Actions</th>
+                </tr>
 
-        @foreach (var item in Model.Where(p => p.DebutEvenement < DateTime.Now))
-        {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Nom)</td>
-            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-            <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
-            <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
-            <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
-            <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
-            <td>
-                @Html.CustomIcone(Url, item.Id, "Edit", "pencil")  |
-                @Html.CustomIcone(Url, item.Id, "Details", "search")  |
-                @Html.CustomIcone(Url, item.Id, "Delete", "trash")
-            </td>
-        </tr>
-        }
-    </table>
+                @foreach (var item in Model.ListeEvenements.Where(p => p.DebutEvenement < DateTime.Now))
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
+                        <td>
+                            @Html.CustomIcone(Url, item.Id, "Edit", "pencil")  |
+                            @Html.CustomIcone(Url, item.Id, "Details", "search")  |
+                            @Html.CustomIcone(Url, item.Id, "Delete", "trash")
+                        </td>
+                    </tr>
+                }
+            </table>
     }
     else if (Request.IsAuthenticated && User.IsInRole("Convive"))
     {
-    <h2>Liste des événements</h2>
+        <h2>Liste des événements</h2>
 
-    <table class="table table-bordered table-striped">
-        <caption>Liste des événements à venir</caption>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Nom)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
-            <th>@Html.DisplayNameFor(model => model.DebutEvenement)</th>
-            <th>@Html.DisplayNameFor(model => model.DureeMinutes)</th>
-            <th>@Html.DisplayNameFor(model => model.Adresse)</th>
-            <th>@Html.DisplayNameFor(model => model.NbParticipants)</th>
-            <th>Actions</th>
-        </tr>
+        <table class="table table-bordered table-striped">
+            <caption>Liste des événements à venir</caption>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Nom)</th>
+                <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Description)</th>
+                <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().DebutEvenement)</th>
+                <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().DureeMinutes)</th>
+                <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().Adresse)</th>
+                <th>@Html.DisplayNameFor(model => model.ListeEvenements.FirstOrDefault().NbParticipants)</th>
+                <th>Actions</th>
+            </tr>
 
-        @foreach (var item in Model.Where(p => p.DebutEvenement >= DateTime.Now))
+            @foreach (var item in Model.ListeEvenements.Where(p => p.DebutEvenement >= DateTime.Now))
+                {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
+                    <td>
+                        @Html.ActionLink("Inscription", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+        if (Model.ListeEvenementsInscris != null)
         {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Nom)</td>
-            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-            <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
-            <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
-            <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
-            <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
-            <td>
-                @Html.ActionLink("Inscription", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id })
-            </td>
-        </tr>
-        }
-    </table>
-    <table class="table table-bordered table-striped">
-        <caption>Liste de vos événements</caption>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Nom)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
-            <th>@Html.DisplayNameFor(model => model.DebutEvenement)</th>
-            <th>@Html.DisplayNameFor(model => model.DureeMinutes)</th>
-            <th>@Html.DisplayNameFor(model => model.Adresse)</th>
-            <th>@Html.DisplayNameFor(model => model.NbParticipants)</th>
-            <th>Actions</th>
-        </tr>
+            <table class="table table-bordered table-striped">
+                <caption>Liste de vos événements</caption>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenementsInscris.FirstOrDefault().Nom)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenementsInscris.FirstOrDefault().Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenementsInscris.FirstOrDefault().DebutEvenement)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenementsInscris.FirstOrDefault().DureeMinutes)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenementsInscris.FirstOrDefault().Adresse)</th>
+                    <th>@Html.DisplayNameFor(model => model.ListeEvenementsInscris.FirstOrDefault().NbParticipants)</th>
+                    <th>Actions</th>
+                </tr>
 
-        @foreach (var item in Model.Where(p => p.DebutEvenement >= DateTime.Now))
-        {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Nom)</td>
-            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-            <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
-            <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
-            <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
-            <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
-            <td>
-                @Html.CustomIcone(Url, item.Id, "Details", "search")  |
-                @Html.CustomIcone(Url, item.Id, "Delete", "trash")
-            </td>
-        </tr>
+                @foreach (var item in Model.ListeEvenementsInscris.Where(p => p.DebutEvenement >= DateTime.Now))
+                    {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DebutEvenement)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DureeMinutes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Adresse)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NbParticipants)</td>
+                        <td>
+                            @Html.CustomIcone(Url, item.Id, "Details", "search")  |
+                            @Html.CustomIcone(Url, item.Id, "Delete", "trash")
+                        </td>
+                    </tr>
+                }
+            </table>
         }
-    </table>
+        else
+        {
+            <p>Vous n'êtes pas encore inscrit à un événement</p>
+        }
     }
+
 </div>
