@@ -6,6 +6,8 @@ using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
 using System;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace SolutionPrincipale.Service
 {
@@ -15,23 +17,74 @@ namespace SolutionPrincipale.Service
         private static double longEven;
         private static double latitudeEven;
 
-        internal static void SelectNearestCarPark(Evenement evenement, List<Parking> parkings)
+        /// <summary>
+        /// Sélection les 3 parkings les plus proches ayant au moins 10 places de libres
+        /// Indiqué un parcour uniquement à pied : transit_routing_preference=less_walking
+        /// </summary>
+        /// <param name="evenement">Objet événement</param>
+        /// <param name="parkings">Liste des Parking</param>
+        /// <param name="free">Nombre de places libre minimum</param>
+        /// <returns></returns>
+        internal static List<Parking> SelectNearestCarPark(Evenement evenement, List<Parking> parkings, int free)
         {
-            throw new NotImplementedException();
+            var OrigineLatitude = evenement.Latitude.ToString().Replace(',', '.');
+            var OrigineLongitude = evenement.Longitude.ToString().Replace(',', '.');
+
+            foreach (Parking parking in parkings.Where(p => p.NbPlacesLibres > free - 1))
+            {
+                var DestinLatitude = parking.Latitude.ToString().Replace(',', '.');
+                var DestinationLongitude = parking.Longitude.ToString().Replace(',', '.');
+                var adressURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" +
+                    OrigineLatitude + "," + OrigineLongitude +
+                    "&destination=" + DestinLatitude + "," + DestinationLongitude +
+                    "&key=AIzaSyBLMmc9Fx12W79c3eJ0t7WV8e8cZgJ2irs&transit_routing_preference=less_walking";
+
+                var client = new WebClient();
+                var jsonObject = JObject.Parse(client.DownloadString(@adressURL));
+                var distance = (int)jsonObject["routes"][0]["legs"][0]["distance"]["value"];
+
+                parking.Distance = distance;
+            }
+            return parkings.OrderByDescending(p => p.Distance).Take(3).ToList();
+        }
+
+        /// <summary>
+        /// Retourne l'oject avec les coordonnées grâce à sa latitude et longitude
+        /// 
+        /// </summary>
+        /// <param name="parkings"></param>
+        /// <returns></returns>
+        internal static List<Parking> FindAdress(List<Parking> parkings)
+        {
+            foreach (Parking parking in parkings)
+            {
+                var adressURL = "https://maps.googleapis.com/maps/api/geocode/json?"
+                    + "latlng=" + parking.Latitude.ToString().Replace(',', '.') + "," + parking.Longitude.ToString().Replace(',', '.')
+                    + "&key=AIzaSyBLMmc9Fx12W79c3eJ0t7WV8e8cZgJ2irs";
+
+                var client = new WebClient();
+                var jsonObject = JObject.Parse(client.DownloadString(@adressURL));
+                var street_number = jsonObject["results"][0]["address_components"][0]["long_name"].ToString();
+                var route = jsonObject["results"][0]["address_components"][1]["long_name"].ToString();
+                parking.Adresse = street_number + route;
+                parking.Ville = jsonObject["results"][0]["address_components"][3]["long_name"].ToString();
+                parking.CodePostal = jsonObject["results"][0]["address_components"][6]["long_name"].ToString();
+
+            }
+            return parkings;
         }
 
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="evenement"></param>
+        /// <returns></returns>
         internal static List<Parking> GetListEventCarpark(Evenement evenement)
         {
-            if (evenement.Latitude.HasValue) { 
-                latitudeEven = (double) evenement.Latitude;
-            }
-            if (evenement.Longitude.HasValue)
-            {
-                longEven = (double) evenement.Longitude;
-            }
-            ListParkings = GetListeParking();
-            
+
+            var ListParkings = GetListeParking();
             return ListParkings;
         }
 

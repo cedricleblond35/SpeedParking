@@ -28,7 +28,7 @@ namespace SolutionPrincipale.Service
         /// <returns></returns>
         internal static string selectDistanceParking(string origin, string destination, string mode)
         {
-            string adresseUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origin + "&destinations="+ destination + "&mode="+ mode + "&language=fr-FR&key=";
+            string adresseUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=" + mode + "&language=fr-FR&key=AIzaSyBLMmc9Fx12W79c3eJ0t7WV8e8cZgJ2irs";
             var client = new WebClient();
             jsonReception = client.DownloadString(adresseUrl);
             jsonObject = JObject.Parse(jsonReception);
@@ -36,14 +36,14 @@ namespace SolutionPrincipale.Service
         }
 
         /// <summary>
-        /// 
+        /// Retourne l'objet avec la latitude et la longitude selon l'adresse se trouvant dans l'objet
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         public static void geocoder<T>(T obj) where T : IAdresse
         {
-            string adresse = obj.Adresse + ", " + obj.CodePostal + ", " + obj.Ville;
+            string adresse = obj.Adresse.Trim() + "," + obj.CodePostal.Trim() + "," + obj.Ville.Trim();
             string adresseEncodeUTF8 = HttpUtility.UrlEncode(adresse);
 
             string geocoder = "http://maps.googleapis.com/maps/api/geocode/json?address=" + adresseEncodeUTF8 + "&sensor=false";
