@@ -144,7 +144,7 @@ namespace SolutionPrincipale.Service
                 }
             }
             //CSV
-            /*using (TextFieldParser parser = new TextFieldParser(@"C:\Users\clebellec2016\Downloads\timetable-and-prices"))
+            /*using (TextFieldParser parser = new TextFieldParser(@"http://data.citedia.com/r1/parks/timetable-and-prices"))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(";");
@@ -154,6 +154,7 @@ namespace SolutionPrincipale.Service
                     string[] fields = parser.ReadFields();
                     foreach (string field in fields)
                     {
+                        Console.WriteLine(field);
                         foreach (var j in listeParkings)
                         {
                             if (field == "Parking" && j.Id == field)
@@ -164,7 +165,7 @@ namespace SolutionPrincipale.Service
                                 j.CrsNom = n.crs.properties.name;
                             }
                         }
-                    }
+                   /* }
                 }
             }*/
             return listeParkings;

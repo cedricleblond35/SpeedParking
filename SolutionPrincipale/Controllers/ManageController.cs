@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SolutionPrincipale.Models;
 using SolutionPrincipale.Services;
+using SolutionPrincipale.Service;
 
 namespace SolutionPrincipale.Controllers
 {
@@ -76,6 +77,24 @@ namespace SolutionPrincipale.Controllers
             var vm = new CreateEditConviveVM();
             vm.DefaultModel = model;
             vm.Convive = ServiceConvive.GetOneConvive(User.Identity.GetUserId());
+            return View(vm);
+        }
+
+        // POST: /Manage/Index
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(CreateEditConviveVM vm)
+        {
+            if (vm?.Convive != null)
+            {
+                vm.Convive.Email = ServiceConvive.GetOneConvive(User.Identity.GetUserId()).Email;
+                if (!String.IsNullOrWhiteSpace(vm.Convive.Adresse))
+                {
+                    ServiceCartographie.geocoder(vm.Convive);
+                }
+                ServiceConvive.EditConvive(vm.Convive);
+                return RedirectToAction("Index");
+            }
             return View(vm);
         }
 

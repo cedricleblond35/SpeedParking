@@ -1,4 +1,5 @@
 ﻿@model BO.Theme
+@using SolutionPrincipale.Extension;
 
 @{
     ViewBag.Title = "Create";
@@ -16,27 +17,11 @@
             <h4>Thème</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
+            @Html.CustomEditorFor(model => model.Nom, "text")
+            @Html.CustomEditorFor(model => model.Description, "text")
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Créer le thème" class="btn btn-default" />
-                </div>
-            </div>
+            @Html.CustomButtonSubmit("Créer le thème")
         </div>
     }
 

@@ -82,24 +82,24 @@
                     }*@
             </dd>
         </dl>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h4>Modification de votre compte</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Convive.Id)
+            <div class="form-horizontal">
+                <h4>Modification de votre compte</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Convive.Id)
 
-            @Html.CustomEditorFor(model => model.Convive.Nom, "text")
-            @Html.CustomEditorFor(model => model.Convive.Prenom, "text")
-            @Html.CustomEditorFor(model => model.Convive.DateNaissance, "datetime-local")
-            @Html.CustomEditorFor(model => model.Convive.Adresse, "text")
-            @Html.CustomEditorFor(model => model.Convive.CodePostal, "text")
-            @Html.CustomEditorFor(model => model.Convive.Ville, "text")
-            @Html.CustomButtonSubmit("Modifier vos infos")
-        </div>
-    }
+                @Html.CustomEditorFor(model => model.Convive.Nom, "text")
+                @Html.CustomEditorFor(model => model.Convive.Prenom, "text")
+                @Html.CustomEditorFor(model => model.Convive.DateNaissance, "date")
+                @Html.CustomEditorFor(model => model.Convive.Adresse, "text")
+                @Html.CustomEditorFor(model => model.Convive.CodePostal, "text")
+                @Html.CustomEditorFor(model => model.Convive.Ville, "text")
+                @Html.CustomButtonSubmit("Modifier vos infos")
+            </div>
+        }
     </div>
 </div>

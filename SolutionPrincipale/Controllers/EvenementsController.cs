@@ -11,24 +11,6 @@ namespace SolutionPrincipale.Controllers
 {
     public class EvenementsController : Controller
     {
-        private const int FREE = 10;
-        /// <summary>
-        /// Retourne la distance du parking par rappor au parking
-        /// 
-        /// </summary>
-        /// <param name="origin"></param>
-        /// <param name="destination"></param>
-        /// <param name="mode"></param>
-        /// <returns></returns>
-        public string selectDistanceParking(string origin, string destination, string mode)
-        {
-            return ServiceCartographie.selectDistanceParking(origin, destination, mode);
-        }
-        public string selectionParking(string origin, string destination, string mode)
-        {
-            return ServiceCartographie.selectDistanceParking(origin, destination, mode);
-        }
-
         // GET: Evenements
         public ActionResult Index()
         {
@@ -49,7 +31,7 @@ namespace SolutionPrincipale.Controllers
         public ActionResult Details(int? id)
         {
             Evenement evenement;
-            List<Parking> parkings;
+            List<Parking> parking;
 
             if (id == null)
             {
@@ -62,18 +44,7 @@ namespace SolutionPrincipale.Controllers
                 return HttpNotFound();
             }
 
-
-
-            //liste de l'ensemble des parkings
-            parkings = ServiceParking.GetListEventCarpark(evenement);
-
-            //liste des parkings selectionnés selon filtre
-            parkings = ServiceParking.SelectNearestCarPark(evenement, parkings, FREE);
-
-            parkings = ServiceParking.FindAdress(parkings);
-
-            //ajouter la liste de tous les parkings à l'évément
-            evenement.Parkings = parkings;
+            parking = ServiceParking.GetListEventCarpark(evenement);
 
             return View(evenement);
         }

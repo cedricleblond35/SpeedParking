@@ -33,6 +33,8 @@ namespace DAL
             c.Adresse = convive.Adresse;
             c.Ville = convive.Ville;
             c.CodePostal = convive.CodePostal;
+            c.Latitude = convive.Latitude;
+            c.Longitude = convive.Longitude;
             c.EvenementsInscris.Clear();
             foreach (var e in convive.EvenementsInscris)
             {
