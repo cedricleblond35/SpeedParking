@@ -41,13 +41,14 @@ namespace SolutionPrincipale.Services
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
+                ConviveRepository<ApplicationDbContext> rep = new ConviveRepository<ApplicationDbContext>(db);
                 if (String.IsNullOrWhiteSpace(id))
                 {
                     return null;
                 }
                 else
                 {
-                    return db.Convives.FirstOrDefault(p => p.IdUser == id);
+                    return rep.GetByUserId(id);
                 }
             }
         }
@@ -93,11 +94,18 @@ namespace SolutionPrincipale.Services
             {
                 return false;
             }
+            convive.EvenementsInscris = eveInscris;
             convive.EvenementsInscris.Add(evenement);
             EditConvive(convive);
             return true;
         }
 
+        /// <summary>
+        /// Désinscription d'un convive à un événement
+        /// </summary>
+        /// <param name="convive">Convive qui se désinscrit</param>
+        /// <param name="evenement">Evénement duquel il se désinscrit</param>
+        /// <returns>bool</returns>
         public static bool Desinscription(Convive convive, Evenement evenement)
         {
             List<Evenement> eveInscris = GetListeEvenementsInscris(convive);
@@ -105,11 +113,17 @@ namespace SolutionPrincipale.Services
             {
                 return false;
             }
-            convive.EvenementsInscris.Remove(evenement);
+            var eve = eveInscris.SingleOrDefault(e => e.Id == evenement.Id);
+            eveInscris.Remove(eve);
+            convive.EvenementsInscris = eveInscris;
             EditConvive(convive);
             return true;
         }
 
+        /// <summary>
+        /// Edition d'un convive
+        /// </summary>
+        /// <param name="convive">Convive modifié à sauvegarder</param>
         public static void EditConvive(Convive convive)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())

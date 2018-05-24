@@ -16,6 +16,11 @@ namespace DAL
         {
             return set.Include(c1 => c1.EvenementsInscris).SingleOrDefault(c2 => c2.Id == id);
         }
+        
+        public Convive GetByUserId(string id)
+        {
+            return set.Include(c1 => c1.EvenementsInscris).SingleOrDefault(c2 => c2.IdUser == id);
+        }
 
         public override void Update(Convive convive)
         {
