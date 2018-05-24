@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SolutionPrincipale.Models;
+using SolutionPrincipale.Services;
 
 namespace SolutionPrincipale.Controllers
 {
@@ -72,7 +73,10 @@ namespace SolutionPrincipale.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-            return View(model);
+            var vm = new CreateEditConviveVM();
+            vm.DefaultModel = model;
+            vm.Convive = ServiceConvive.GetOneConvive(User.Identity.GetUserId());
+            return View(vm);
         }
 
         //
