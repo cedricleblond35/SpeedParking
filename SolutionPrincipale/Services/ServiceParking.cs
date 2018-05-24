@@ -64,11 +64,31 @@ namespace SolutionPrincipale.Service
 
                 var client = new WebClient();
                 var jsonObject = JObject.Parse(client.DownloadString(@adressURL));
-                var street_number = jsonObject["results"][0]["address_components"][0]["long_name"].ToString();
-                var route = jsonObject["results"][0]["address_components"][1]["long_name"].ToString();
+
+                var nbrData = (int)jsonObject["results"][0]["address_components"].Count();
+
+                var route = "";
+                var street_number = "";
+                for (int i = 0; i < nbrData; i++)
+                {
+                    switch (jsonObject["results"][0]["address_components"][i]["types"][0].ToString())
+                    {
+                        
+                        case "route":
+                            route = (string)jsonObject["results"][0]["address_components"][i]["long_name"].ToString();
+                            break;
+                        case "street_number":
+                            street_number = (string)jsonObject["results"][0]["address_components"][i]["long_name"].ToString();
+                            break;
+                        case "locality":
+                            parking.Ville = (string)jsonObject["results"][0]["address_components"][i]["long_name"].ToString();
+                            break;
+                        case "postal_code":
+                            parking.CodePostal = (string)jsonObject["results"][0]["address_components"][i]["long_name"].ToString();
+                            break;
+                    }
+                }
                 parking.Adresse = street_number + route;
-                parking.Ville = jsonObject["results"][0]["address_components"][3]["long_name"].ToString();
-                parking.CodePostal = jsonObject["results"][0]["address_components"][6]["long_name"].ToString();
 
             }
             return parkings;
