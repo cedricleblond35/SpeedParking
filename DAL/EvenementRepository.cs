@@ -25,6 +25,8 @@ namespace DAL
             o.Ville = evenement.Ville;
             o.CodePostal = evenement.CodePostal;
             o.Organisateur = evenement.Organisateur;
+            o.Latitude = evenement.Latitude;
+            o.Longitude = evenement.Longitude;
             o.Themes.Clear();
             foreach (var t in evenement.Themes)
             {

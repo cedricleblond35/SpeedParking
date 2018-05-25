@@ -230,13 +230,13 @@
         </div>
 
     </div>
+    <p>
+        @Html.ActionLink("Editer", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" }) |
+        @Html.ActionLink("Retour à la liste des événements", "Index", new { @class = "btn btn-default" })
+    </p>
 
 
 </div>
 
 
 
-<p>
-    @Html.ActionLink("Editer", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" }) |
-    @Html.ActionLink("Retour à la liste des événements", "Index", new { @class = "btn btn-default" })
-</p>
