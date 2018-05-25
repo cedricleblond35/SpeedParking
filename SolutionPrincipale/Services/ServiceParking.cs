@@ -8,6 +8,7 @@ using System.Web.Script.Serialization;
 using System;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using System.IO;
 
 namespace SolutionPrincipale.Service
 {
@@ -164,30 +165,35 @@ namespace SolutionPrincipale.Service
                 }
             }
             //CSV
-            /*using (TextFieldParser parser = new TextFieldParser(@"http://data.citedia.com/r1/parks/timetable-and-prices"))
+            /*using (var stream = new MemoryStream())
             {
-                parser.TextFieldType = FieldType.Delimited;
-                parser.SetDelimiters(";");
-                while (!parser.EndOfData)
+                var client = new WebClient();
+                var test = client.DownloadString(@"http://data.citedia.com/r1/parks/timetable-and-prices");
+                var bytes = System.Text.Encoding.Default.GetBytes(test);
+                stream.Write(bytes, 0, bytes.Length);
+                stream.Seek(0, SeekOrigin.Begin);
+                using (TextFieldParser parser = new TextFieldParser(stream))
                 {
-                    //Process row
-                    string[] fields = parser.ReadFields();
-                    foreach (string field in fields)
+                    parser.TextFieldType = FieldType.Delimited;
+                    parser.SetDelimiters(";");
+                    List<Parking> liste = new List<Parking>();
+                    int compteur = 0;
+                    while (!parser.EndOfData)
                     {
-                        Console.WriteLine(field);
-                        foreach (var j in listeParkings)
+                        //fields[0] = id, fields[1] = horaires, fields[2] = tarifs, fields[3] = adresse, fields[4] = capacite, fields[5] = seuil-complet,
+                        string[] fields = parser.ReadFields();
+                        if (compteur > 0)
                         {
-                            if (field == "Parking" && j.Id == field)
-                            {
-                                j.GeometrieType = n.geometry.type;
-                                j.Coordonnees = n.geometry.coordinates;
-                                j.CrsType = n.crs.type;
-                                j.CrsNom = n.crs.properties.name;
-                            }
+                            Parking parking = listeParkings.FirstOrDefault(p => p.Nom == fields[0]);
+                            parking.Horaires = fields[1];
+                            parking.Tarifs = fields[2];
                         }
-                   /* }
+
+                        compteur++;
+                    }
                 }
             }*/
+
             return listeParkings;
         }
 
