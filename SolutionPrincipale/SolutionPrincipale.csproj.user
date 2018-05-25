@@ -9,6 +9,8 @@
     <WebStackScaffolding_DbContextTypeFullName>SolutionPrincipale.Models.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NameOfLastUsedPublishProfile>pouet</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
