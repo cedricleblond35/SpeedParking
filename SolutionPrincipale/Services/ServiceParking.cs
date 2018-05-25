@@ -46,7 +46,7 @@ namespace SolutionPrincipale.Service
 
                 parking.Distance = distance;
             }
-            return parkings.OrderByDescending(p => p.Distance).Take(3).ToList();
+            return parkings.OrderBy(p => p.Distance).Take(3).ToList();
         }
 
         /// <summary>

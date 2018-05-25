@@ -80,10 +80,8 @@
 
             iconCounter++;
         }
-        console.log("larg:" + locations[0][1] + " long:" + locations[0][2]);
 
-        //calculateAndDisplayRoute(directionsService, directionsDisplay, locations[0], locations[3]);
-
+        {@* Trace le chemin entre 2 points*@}
         function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
             var selectedMode = document.getElementById('mode').value;
             pointA = new google.maps.LatLng(pointA[1], pointA[2]);
