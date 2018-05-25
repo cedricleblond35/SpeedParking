@@ -165,7 +165,7 @@ namespace SolutionPrincipale.Service
                 }
             }
             //CSV
-            using (var stream = new MemoryStream())
+            /*using (var stream = new MemoryStream())
             {
                 var client = new WebClient();
                 var test = client.DownloadString(@"http://data.citedia.com/r1/parks/timetable-and-prices");
@@ -188,9 +188,12 @@ namespace SolutionPrincipale.Service
                             parking.Horaires = fields[1];
                             parking.Tarifs = fields[2];
                         }
+
                         compteur++;
                     }
                 }
+            }*/
+
             return listeParkings;
         }
 
